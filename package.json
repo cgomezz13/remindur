@@ -10,7 +10,10 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "webpack": "^3.10.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
@@ -20,8 +23,14 @@
     "lib": "lib",
     "test": "test"
   },
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
