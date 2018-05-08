@@ -1,18 +1,19 @@
 class User < ApplicationRecord
-  validates :first_name, :last_name, :username, :email, :image_url, presence: true
+  validates :first_name, :last_name, :username, :email, presence: true #add image_url ?
   validates :username, :email, uniqueness: true
-  validates :password_digest, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, allow_nil: true
 
+  attr_reader :password
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
-    return user if is_password?(password)
+    return user if user.is_password?(password)
     nil
   end
 
   def self.generate_session_token
-    SecureRandom.urlsafe_base64
+    SecureRandom::urlsafe_base64
   end
 
   def reset_session_token

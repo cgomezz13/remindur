@@ -21,8 +21,5 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(session_token: session[:session_token])
   end
 
-  def redirect_unless_logged_in
-    
-  end
 
 end
