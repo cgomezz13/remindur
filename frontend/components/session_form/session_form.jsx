@@ -11,12 +11,19 @@ class SessionForm extends React.Component {
       this.state = {username: '', password: ''};
     }
 
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(info) {
     return e => {
       this.setState({[info]: e.target.value })
     }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.props.action(user);
   }
 
   render () {
@@ -31,9 +38,8 @@ class SessionForm extends React.Component {
       )
     }
 
-    debugger
     return (
-      <form onSubmit={()=>this.props.action(this.state)}>
+      <form onSubmit={this.handleSubmit}>
         {signin}
         <input onChange={this.update('username')} type="text" value={this.state.username} placeholder={'Username'} />
         <input onChange={this.update('password')} type="text" value={this.state.password} placeholder={'Password'} />

@@ -23,7 +23,7 @@ export const logoutCurrentUser = () => {
 
 export const logout = () => {
   return (dispatch) => {
-    SessionAPIUtil.logOut().then(() => {
+    return SessionAPIUtil.logOut().then(() => {
       return dispatch(logoutCurrentUser());
     });
   };
@@ -31,7 +31,7 @@ export const logout = () => {
 
 export const login = (user) => {
   return (dispatch) => {
-    SessionAPIUtil.logIn(user).then(
+    return SessionAPIUtil.logIn(user).then(
       user => {
         return dispatch(receiveCurrentUser(user));
       },

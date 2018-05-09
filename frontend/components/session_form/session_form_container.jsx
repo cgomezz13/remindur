@@ -11,15 +11,14 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  let todo;
 
-  if (ownProps.formType ==='Sign Up') {
+  if (ownProps.location.pathname.slice(1) === 'signup') {
     return({
-      action: (user) => (signUp(user))
+      action: (user) => dispatch(signUp(user))
     });
   } else {
     return({
-      action: (user) => (login(user))
+      action: (user) => dispatch(login(user))
     });
   }
 
