@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 const App = () => (
   <div>
     <header>
-        <h1>hello im at root</h1>
+        <h1>Remindur</h1>
     </header>
 
       <Switch>

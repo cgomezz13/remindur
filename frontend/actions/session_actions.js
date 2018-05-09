@@ -13,7 +13,7 @@ export const receiveCurrentUser = (user) => {
 export const receiveErrors = errors => {
   return {
     type: RECEIVE_SESSION_ERRORS,
-    errors: errors.responseJSON
+    errors: errors
   };
 };
 
@@ -36,7 +36,7 @@ export const login = (user) => {
         return dispatch(receiveCurrentUser(user));
       },
       errors => {
-        return dispatch(receiveErrors(errors));
+        return dispatch(receiveErrors(errors.responseJSON));
       }
     );
   };
@@ -48,7 +48,7 @@ export const signUp = (user) => {
       return dispatch(receiveCurrentUser(user));
     },
     errors => {
-      return dispatch(receiveErrors(errors));
+      return dispatch(receiveErrors(errors.responseJSON));
     }
   );
   };

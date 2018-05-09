@@ -26,6 +26,16 @@ class SessionForm extends React.Component {
     this.props.action(user);
   }
 
+  renderErrors(){
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    )
+  }
+
   render () {
     let signin;
     if (this.props.formType==='signup') {
@@ -44,6 +54,7 @@ class SessionForm extends React.Component {
         <input onChange={this.update('username')} type="text" value={this.state.username} placeholder={'Username'} />
         <input onChange={this.update('password')} type="text" value={this.state.password} placeholder={'Password'} />
         <input type='submit' value='Submit'></input>
+        {this.renderErrors()}
       </form>
     );
   }
