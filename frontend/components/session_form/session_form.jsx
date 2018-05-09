@@ -6,7 +6,7 @@ class SessionForm extends React.Component {
     super(props);
 
     if (this.props.formType==='signup') {
-      this.state = {fname: '', lname: '', email: '', username: '', password: ''};
+      this.state = {first_name: '', last_name: '', email: '', username: '', password: ''};
     } else {
       this.state = {username: '', password: ''};
     }
@@ -31,8 +31,8 @@ class SessionForm extends React.Component {
     if (this.props.formType==='signup') {
       signin = (
         <section>
-          <input onChange={this.update('fname')} type="text" value={this.state.fname} placeholder={'First Name'} />
-          <input onChange={this.update('lname')} type="text" value={this.state.lname} placeholder={'Last Name'} />
+          <input onChange={this.update('first_name')} type="text" value={this.state.fname} placeholder={'First Name'} />
+          <input onChange={this.update('last_name')} type="text" value={this.state.lname} placeholder={'Last Name'} />
           <input onChange={this.update('email')} type="text" value={this.state.email} placeholder={'Email'} />
         </section>
       )
