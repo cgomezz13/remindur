@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor (props) {
@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
 
   update(info) {
     return e => {
@@ -37,25 +38,44 @@ class SessionForm extends React.Component {
   }
 
   render () {
-    let signin;
+    let signin, link, button, text;
     if (this.props.formType==='signup') {
+      link = '/login';
+      button = 'Sign Up';
+      text = 'Log In';
       signin = (
-        <section>
+        <div>
           <input onChange={this.update('first_name')} type="text" value={this.state.fname} placeholder={'First Name'} />
           <input onChange={this.update('last_name')} type="text" value={this.state.lname} placeholder={'Last Name'} />
           <input onChange={this.update('email')} type="text" value={this.state.email} placeholder={'Email'} />
-        </section>
+        </div>
       )
+    } else {
+      link = '/signup';
+      text = 'Sign Up';
+      button = 'Log In'
     }
 
+
     return (
-      <form onSubmit={this.handleSubmit}>
-        {signin}
-        <input onChange={this.update('username')} type="text" value={this.state.username} placeholder={'Username'} />
-        <input onChange={this.update('password')} type="text" value={this.state.password} placeholder={'Password'} />
-        <input type='submit' value='Submit'></input>
-        {this.renderErrors()}
-      </form>
+      <section className='session-page'>
+
+        <section className='session-page-left-side'>
+          <h1>LEFT SIDE</h1>
+        </section>
+
+        <section className='session-page-right-side'>
+          <Link to={link}>{text}</Link>
+          <form className='form' onSubmit={this.handleSubmit} >
+            {signin}
+            <input onChange={this.update('username')} type="text" value={this.state.username} placeholder={'Username'} />
+            <input onChange={this.update('password')} type="text" value={this.state.password} placeholder={'Password'} />
+            <input id='button' type='submit' value={button}></input>
+            {this.renderErrors()}
+          </form>
+        </section>
+
+      </section>
     );
   }
 
