@@ -38,11 +38,12 @@ class SessionForm extends React.Component {
   }
 
   render () {
-    let signin, link, button, text, demo, demotext;
+    let signin, link, button, text, demo, demotext, message;
     if (this.props.formType==='signup') {
       link = '/login';
       button = 'Sign Up';
       text = 'Log In';
+      message = <div id='session-message'>Create an account.</div>
       signin = (
         <div>
           <input onChange={this.update('first_name')} type="text" value={this.state.fname} placeholder={'First Name'} />
@@ -55,6 +56,7 @@ class SessionForm extends React.Component {
       text = 'Sign Up';
       button = 'Log In';
       demotext = 'Login Demo';
+      message = <div id='session-message'>Welcome back!</div>
       demo = <button id='button' onClick={()=>this.props.action(this.props.demo)}>{demotext}</button>;
     }
 
@@ -67,12 +69,13 @@ class SessionForm extends React.Component {
         </section>
 
         <section className='session-page-right-side'>
-          <Link to={link}>{text}</Link>
+          <Link id='alt-link' to={link}>{text}</Link>
+          {message}
           <form className='form' onSubmit={this.handleSubmit} >
             {signin}
             <input onChange={this.update('username')} type="text" value={this.state.username} placeholder={'Username'} />
             <input onChange={this.update('password')} type="text" value={this.state.password} placeholder={'Password'} />
-            <input id='button' type='submit' value={button}></input>
+            <input id='button' type='submit' value={button} style={{marginTop: "8px"}}></input>
             {this.renderErrors()}
             {demo}
           </form>
