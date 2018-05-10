@@ -1,22 +1,49 @@
-.greeting-navbar {
+.greeting {
   width: 100%;
-  border-bottom: 5px solid blue;
 }
 
-.greeting-navbar {
-  float: left;
+.main-header {
+  width: 100%;
+  background-color: #0060bf;
+  // font-family: MuseoSansRounded, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-#title {
-  width: 80px;
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 1000px;
+}
+
+#navbar-logo {
+  display: block;
   padding: 10px;
+  font-size: 20px;
+  color: white;
+  font-weight: 700;
 }
 
-.navbar-links li {
-  background-color: gray;
+.navbar-links > * {
+  // background-color: transparent;
   list-style: none;
   padding: 10px;
   margin: 0 8px;
   float: left;
   width: 80px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#link {
+  color: white;
+}
+
+.greeting-main {
+  background: image_url('remindur_main_page.jpg') 60% no-repeat;
+  background-size: cover;
+  height: 450px;
+  // background-repeat: no-repeat;
+  // margin-left: auto;
+  // margin-right: auto;
+  // margin: 0 auto;
 }

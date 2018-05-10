@@ -8,7 +8,6 @@ import { withRouter, Route, Redirect } from 'react-router-dom';
 // );
 
 const mapStateToProps = (state) => {
-  debugger
   return (
     {loggedIn: state.session.id}
   );
