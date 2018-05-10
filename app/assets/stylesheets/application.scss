@@ -15,44 +15,7 @@
  */
 
 
-.session-page {
-  display: flex;
-  height: 100%;
-  width: 100%;
-}
 
-.session-page-left-side {
-  width: 50%;
-  background-color: green;
-}
-
-.session-page-right-side {
-  width: 50%;
-  background-color: red;
-}
-
-.form {
-  padding: 60px;
-}
-
-input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border-radius: 10px;
-}
-
-#button {
-    background-color: blue;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    width: 100%;
-    cursor: pointer;
-    border-radius: 10px;
-}
 
 
 

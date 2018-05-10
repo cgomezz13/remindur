@@ -16,7 +16,7 @@ const homepage = () => {
               Remindur
           </h1>
           <ul className='navbar-links'>
-            <li><Link  id='link' to='/login'>{login}</Link></li>
+            <li><Link id='link' to='/login'>{login}</Link></li>
             <li><Link id='link' to='/signup'>{signup}</Link></li>
           </ul>
         </nav>

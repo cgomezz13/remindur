@@ -1,0 +1,46 @@
+.session-page {
+}
+
+.session-page-left-side {
+  width: 50%;
+  background-color: #0060bf;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  z-index: 1;
+}
+
+.session-page-right-side {
+  width: 50%;
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  z-index: 1;
+}
+
+.form {
+  padding: 60px;
+  top: 100px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+#button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+}
