@@ -38,7 +38,7 @@ class SessionForm extends React.Component {
   }
 
   render () {
-    let signin, link, button, text;
+    let signin, link, button, text, demo, demotext;
     if (this.props.formType==='signup') {
       link = '/login';
       button = 'Sign Up';
@@ -53,7 +53,9 @@ class SessionForm extends React.Component {
     } else {
       link = '/signup';
       text = 'Sign Up';
-      button = 'Log In'
+      button = 'Log In';
+      demotext = 'Login Demo';
+      demo = <button id='button' onClick={()=>this.props.action(this.props.demo)}>{demotext}</button>;
     }
 
 
@@ -72,6 +74,7 @@ class SessionForm extends React.Component {
             <input onChange={this.update('password')} type="text" value={this.state.password} placeholder={'Password'} />
             <input id='button' type='submit' value={button}></input>
             {this.renderErrors()}
+            {demo}
           </form>
         </section>
 
