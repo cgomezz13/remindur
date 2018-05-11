@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     formType: ownProps.location.pathname.slice(1),
     errors: state.errors.sessionErrors,
-    demo: {username: 'thefirstuser', password: 'password'}
+    demo: {username: 'guest', password: 'password'}
   };
 };
 
