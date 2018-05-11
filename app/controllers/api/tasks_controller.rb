@@ -7,7 +7,7 @@ class Api::TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.user_id = current_user.id
+    (@task.user_id = current_user.id) unless @task.user_id
     if @task.save
       render :show
     else
