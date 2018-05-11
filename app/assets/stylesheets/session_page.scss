@@ -23,7 +23,7 @@
 
 .form {
   padding: 60px;
-  margin-top: 100px;
+  margin-top: 20px;
 }
 
 input[type=text] {
@@ -48,17 +48,17 @@ input[type=text] {
 #alt-link {
   font-size: 20px;
   position: fixed;
-  top: 30px;
+  top: 45px;
   right: 60px;
 }
 
 #session-message {
   font-size: 25px;
-  position: fixed;
-  top: 100px;
-  right: 250px;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 #error {
   color: red;
+  top: 80px;
 }
