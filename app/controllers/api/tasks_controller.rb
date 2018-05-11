@@ -28,9 +28,9 @@ class Api::TasksController < ApplicationController
   end
 
   def destroy
-    debugger
     task = Task.find(params[:id])
     task.destroy
+    @tasks = Task.all
     render :index
   end
 
