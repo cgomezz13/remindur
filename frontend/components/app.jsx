@@ -5,6 +5,7 @@ import Welcome from './welcomepage/welcome';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import TaskFormContainer from './task_form/all_tasks_container';
+import userHomepage from './homepage';
 
 const App = () => (
   <div>
@@ -12,8 +13,9 @@ const App = () => (
         <Route exact path='/' component={Welcome} />
         <AuthRoute exact path='/login' component={SessionFormContainer} />
         <AuthRoute exact path='/signup' component={SessionFormContainer} />
-        <ProtectedRoute exact path='/tasks' component={TaskFormContainer} />
       </Switch>
+      <ProtectedRoute exact path='/tasks' component={userHomepage} />
+      <ProtectedRoute exact path='/tasks' component={TaskFormContainer} />
   </div>
 );
 
