@@ -4,8 +4,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      render :show;
-      # render json: { id: @user.id, first_name: @user.first_name, last_name: @user.last_name, email: @user.email, username: @user.username,  }
+      render :show
     else
       error = @user.errors.full_messages
       render json: error, status: 401

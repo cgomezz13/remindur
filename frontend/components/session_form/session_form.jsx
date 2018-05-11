@@ -29,9 +29,9 @@ class SessionForm extends React.Component {
 
   renderErrors(){
     return(
-      <ul>
+      <ul className='sessionErrors'>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
+          <li id='error' key={`error-${i}`}>{error}</li>
         ))}
       </ul>
     )
@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
       button = 'Log In';
       demotext = 'Login Demo';
       message = <div id='session-message'>Welcome back!</div>
-      demo = <button id='button' onClick={()=>this.props.action(this.props.demo)}>{demotext}</button>;
+      demo = <button id='button' onClick={()=>this.props.action(this.props.demo)}>{demotext} </button>;
     }
 
 
@@ -70,13 +70,13 @@ class SessionForm extends React.Component {
 
         <section className='session-page-right-side'>
           <Link id='alt-link' to={link}>{text}</Link>
-          {message}
+          {this.renderErrors()}
           <form className='form' onSubmit={this.handleSubmit} >
+            {message}
             {signin}
             <input onChange={this.update('username')} type="text" value={this.state.username} placeholder={'Username'} />
             <input onChange={this.update('password')} type="text" value={this.state.password} placeholder={'Password'} />
-            <input id='button' type='submit' value={button} style={{marginTop: "8px"}}></input>
-            {this.renderErrors()}
+            <input id='button' type='submit' value={button} style={{marginTop: "8px", marginBottom: "12px"}}></input>
             {demo}
           </form>
         </section>

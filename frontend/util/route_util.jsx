@@ -2,11 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Redirect } from 'react-router-dom';
 
-
-// const mapStateToProps = (state) => (
-//   {loggedIn: Boolean(Object.keys(state.session))}
-// );
-
 const mapStateToProps = (state) => {
   return (
     {loggedIn: state.session.id}

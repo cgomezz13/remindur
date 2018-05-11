@@ -3,6 +3,11 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
+  has_many :tasks,
+    class_name: 'Task',
+    foreign_key: :user_id,
+    primary_key: :id
+
   attr_reader :password
   after_initialize :ensure_session_token
 
