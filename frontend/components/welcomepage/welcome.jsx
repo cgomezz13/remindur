@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const homepage = () => {
+const welcome = () => {
 
   const login = 'Log In';
   const signup = 'Sign Up';
@@ -29,4 +29,4 @@ const homepage = () => {
 
 }
 
-export default homepage;
+export default welcome;

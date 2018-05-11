@@ -38,7 +38,7 @@ class taskForm extends React.Component {
         <h1>HERE</h1>
         <form onSubmit={this.handleSubmit} className='task-form'>
           <input onChange={this.update('body')} type='text' value={this.state.body} placeholder='Add a Task'/>
-          <input type='submit' />
+          <input type='submit' value='Add Task' />
         </form>
         <ul>{allTasks}</ul>
       </section>
