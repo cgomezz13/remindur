@@ -8,6 +8,11 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     primary_key: :id
 
+  has_many :lists,
+    class_name: 'List',
+    foreign_key: :user_id,
+    primary_key: :id
+
   attr_reader :password
   after_initialize :ensure_session_token
 
