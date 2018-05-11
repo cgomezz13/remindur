@@ -5,7 +5,7 @@ import taskForm from './task_form';
 
 const mapStateToProps = (state) => {
   return ({
-    tasks: state.task
+    tasks: Object.values(state.tasks)
   });
 };
 

@@ -25,7 +25,13 @@ class taskForm extends React.Component {
     this.props.createTask(newTask)
   }
 
+
   render () {
+    const allTasks = this.props.tasks.map(task => {
+      return (
+        <li key='task.id' id='task items'>{task.body}</li>
+      )
+    });
 
     return (
       <section>
@@ -34,6 +40,7 @@ class taskForm extends React.Component {
           <input onChange={this.update('body')} type='text' value={this.state.body} placeholder='Add a Task'/>
           <input type='submit' />
         </form>
+        <ul>{allTasks}</ul>
       </section>
     )
   }
