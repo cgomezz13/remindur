@@ -4,7 +4,7 @@ import { withRouter, Route, Redirect } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return (
-    {loggedIn: state.session.id}
+    {loggedIn: state.session.user}
   );
 }
 

@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return({
     createTask: (task) => dispatch(createTask(task)),
+    fetchAllTasks: () => dispatch(allTasks()),
     deleteTask: (id) => dispatch(deleteTask(id)),
     updateTask: (task) => dispatch(updateTask(task))
   })

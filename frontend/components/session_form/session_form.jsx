@@ -57,7 +57,10 @@ class SessionForm extends React.Component {
       button = 'Log In';
       demotext = 'Login Demo';
       message = <div id='session-message'>Welcome back!</div>
-      demo = <button id='button' onClick={()=>this.props.action(this.props.demo)}>{demotext} </button>;
+      demo = <button id='button' onClick={(e)=> {
+          e.preventDefault();
+          this.props.action(this.props.demo)
+        }}>{demotext} </button>;
     }
 
 

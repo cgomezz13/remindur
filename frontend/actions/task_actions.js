@@ -43,6 +43,7 @@ export const deleteTask = (id) => {
 export const allTasks = () => {
   return (dispatch) => {
     return TaskAPIUtil.allTasks().then(task => {
+      debugger
       return dispatch(fetchAllTasks(task));
     });
   }

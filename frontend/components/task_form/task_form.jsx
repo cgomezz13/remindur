@@ -15,6 +15,9 @@ class taskForm extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.fetchAllTasks();
+  }
 
   handleSubmit(e){
     e.preventDefault();
