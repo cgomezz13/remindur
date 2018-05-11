@@ -4,7 +4,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import Homepage from './homepage/homepage';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import TaskFormContainer from './task_form/task_form_container';
+import TaskFormContainer from './task_form/all_tasks_container';
 
 const App = () => (
   <div>
