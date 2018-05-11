@@ -41,9 +41,11 @@ export const deleteTask = (id) => {
 };
 
 export const allTasks = () => {
-  return TaskAPIUtil.allTasks().then(task => {
-    return dispatch(fetchAllTasks(task));
-  });
+  return (dispatch) => {
+    return TaskAPIUtil.allTasks().then(task => {
+      return dispatch(fetchAllTasks(task));
+    });
+  }
 };
 
 export const updateTask = (task) => {

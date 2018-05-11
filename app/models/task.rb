@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
 
-  validates :body, :status, presence: true
+  validates :body, presence: true
+  validates :status, inclusion: { in: [true, false] }
 
   belongs_to :user,
     class_name: 'User',

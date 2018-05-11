@@ -12,7 +12,6 @@ class Api::TasksController < ApplicationController
       render :show
     else
       error = @task.errors.full_messages
-      debugger
       render json: error, status: 401
     end
   end

@@ -16,7 +16,7 @@ export const deleteTask = (id) => {
 export const updateTask = (task) => {
   return $.ajax ({
     method: 'PATCH',
-    url: `/api/tasks/${id}`,
+    url: `/api/tasks/${task.id}`,
     data: { task: task }
   });
 };
