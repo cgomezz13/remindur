@@ -1,0 +1,17 @@
+.user-page-navbar {
+  background-color: #e6e4d8;
+  width: auto;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-nav-right {
+  font-size: 25px;
+  opacity: 0.5;
+}
+
+.user-nav-right:hover {
+  // filter: brightness(150%);
+  opacity: 1;
+}
