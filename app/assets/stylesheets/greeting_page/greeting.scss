@@ -4,8 +4,8 @@
 
 .main-header {
   width: 100%;
-  background-color: #0060bf;
-  // font-family: MuseoSansRounded, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #e6e4d8;
+  opacity: 0.6;
 }
 
 .header-nav {
@@ -15,11 +15,13 @@
   width: 1000px;
 }
 
-#navbar-logo {
+.navbar-logo {
   padding: 10px;
   font-size: 20px;
-  color: white;
+  color: black;
   font-weight: 700;
+  margin-top: 26px;
+  margin-bottom: 26px;
 }
 
 .navbar-links {
@@ -32,23 +34,21 @@
   padding: 10px;
   display: block;
   float: left;
-  width: 80px;
   font-size: 20px;
   font-weight: 700;
 }
 
-#link {
+.session_link:hover{
+  color: gray;
+}
+
+.session_link {
   top: 0px;
-  color: white;
-  width: 40px;
+  color: black;
 }
 
 .greeting-main {
-  background: image_url('remindur_main_page.jpg') 60% no-repeat;
+  background: image_url('main_page.jpg') 60% no-repeat;
   background-size: cover;
   height: 450px;
-  // background-repeat: no-repeat;
-  // margin-left: auto;
-  // margin-right: auto;
-  // margin: 0 auto;
 }

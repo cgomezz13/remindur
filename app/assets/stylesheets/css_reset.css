@@ -1,6 +1,6 @@
 /* PHASE 0: Reset */
 
-/* html, body, header, nav, h1, a,
+html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
 fieldset, label, input, textarea,
@@ -16,18 +16,12 @@ span, article, footer, time, small {
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
-} */
-
-a:link {
-  text-decoration: none;
 }
 
-ul li {
-  text-decoration: none;
+ul {
   list-style: none;
 }
 
-/*
 img {
   display: block;
   width: 100%;
@@ -39,16 +33,16 @@ input[type="email"],
 input[type="text"],
 input[type="submit"],
 textarea,
-button { */
+button {
   /*
   Get rid of native styling. Read more here:
   http://css-tricks.com/almanac/properties/a/appearance/
   */
-  /* -webkit-appearance: none;
+  -webkit-appearance: none;
   -moz-appearance: none;
 }
 
 button,
 input[type="submit"] {
   cursor: pointer;
-} */
+}

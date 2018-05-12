@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
     return(
       <ul className='sessionErrors'>
         {this.props.errors.map((error, i) => (
-          <li id='error' key={`error-${i}`}>{error}</li>
+          <li className='error' key={`error-${i}`}>{error}</li>
         ))}
       </ul>
     )
@@ -43,12 +43,12 @@ class SessionForm extends React.Component {
       link = '/login';
       button = 'Sign Up';
       text = 'Log In';
-      message = <div id='session-message'>Create an account.</div>
+      message = <div className='session-message'>Create an account.</div>
       signin = (
         <div>
-          <input onChange={this.update('first_name')} type="text" value={this.state.fname} placeholder={'First Name'} />
-          <input onChange={this.update('last_name')} type="text" value={this.state.lname} placeholder={'Last Name'} />
-          <input onChange={this.update('email')} type="text" value={this.state.email} placeholder={'Email'} />
+          <input className='sign-up-inputs' onChange={this.update('first_name')} type="text" value={this.state.fname} placeholder={'First Name'} />
+          <input className='sign-up-inputs' onChange={this.update('last_name')} type="text" value={this.state.lname} placeholder={'Last Name'} />
+          <input className='sign-up-inputs' onChange={this.update('email')} type="text" value={this.state.email} placeholder={'Email'} />
         </div>
       )
     } else {
@@ -56,8 +56,8 @@ class SessionForm extends React.Component {
       text = 'Sign Up';
       button = 'Log In';
       demotext = 'Login Demo';
-      message = <div id='session-message'>Welcome back!</div>
-      demo = <button id='button' onClick={(e)=> {
+      message = <div className='session-message'>Welcome back!</div>
+      demo = <button className='button' onClick={(e)=> {
           e.preventDefault();
           this.props.action(this.props.demo)
         }}>{demotext} </button>;
@@ -72,14 +72,14 @@ class SessionForm extends React.Component {
         </section>
 
         <section className='session-page-right-side'>
-          <Link id='alt-link' to={link}>{text}</Link>
+          <Link className='alt-link' to={link}>{text}</Link>
           {this.renderErrors()}
           <form className='form' onSubmit={this.handleSubmit} >
             {message}
             {signin}
-            <input onChange={this.update('username')} type="text" value={this.state.username} placeholder={'Username'} />
-            <input onChange={this.update('password')} type="text" value={this.state.password} placeholder={'Password'} />
-            <input id='button' type='submit' value={button} style={{marginTop: "8px", marginBottom: "12px"}}></input>
+            <input className='login-inputs' onChange={this.update('username')} type="text" value={this.state.username} placeholder={'Username'} />
+            <input className='login-inputs' onChange={this.update('password')} type="text" value={this.state.password} placeholder={'Password'} />
+            <input className='button' type='submit' value={button} style={{marginTop: "8px", marginBottom: "12px"}}></input>
             {demo}
           </form>
         </section>

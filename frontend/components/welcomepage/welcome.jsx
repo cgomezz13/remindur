@@ -12,12 +12,12 @@ const welcome = () => {
 
       <section className='main-header'>
         <nav className='header-nav'>
-          <h1 id='navbar-logo'>
+          <h1 className='navbar-logo'>
               Remindur
           </h1>
           <ul className='navbar-links'>
-            <li><Link id='link' to='/login'>{login}</Link></li>
-            <li><Link id='link' to='/signup'>{signup}</Link></li>
+            <li><Link className='session_link' to='/login'>{login}</Link></li>
+            <li><Link className='session_link' to='/signup'>{signup}</Link></li>
           </ul>
         </nav>
       </section>
