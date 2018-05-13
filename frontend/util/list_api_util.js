@@ -27,3 +27,10 @@ const deleteList = (id) => {
     url: `/api/lists/${id}`
   })
 }
+
+const fetchListsTask = (id) => {
+  return $.ajax ({
+    method: 'GET',
+    url: `/api/lists/${id}`
+  })
+}

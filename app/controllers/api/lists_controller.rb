@@ -1,7 +1,7 @@
 class Api::ListsController < ApplicationController
 
   def index
-    @lists = current_user.lists
+    @list = current_user.lists
     render :index
   end
 
@@ -9,7 +9,8 @@ class Api::ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user_id = current_user.id
     if @list.save
-      render :show
+      @tasks = list.tasks
+      render 'api/tasks/index'
     else
       errors = @list.errors.full_messages
       render json: error, status: 401
@@ -24,6 +25,12 @@ class Api::ListsController < ApplicationController
       errors = @list.errors.full_messages
       render json: error, status: 401
     end
+  end
+
+  def show
+    list = List.find(params[:id])
+    @tasks = list.tasks
+    render 'api/tasks/index'
   end
 
   def destroy
