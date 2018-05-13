@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import TaskFormContainer from './task_form/all_tasks_container';
 import UserHomepageContainer from './user_homepage/user_homepage_container';
+import ListFormContainer from './lists_form/list_form_container';
 
 const App = () => (
   <div>
@@ -16,6 +17,7 @@ const App = () => (
       </Switch>
       <ProtectedRoute exact path='/tasks' component={UserHomepageContainer} />
       <ProtectedRoute exact path='/tasks' component={TaskFormContainer} />
+      <ProtectedRoute exact path='/tasks' component={ListFormContainer} />
   </div>
 );
 

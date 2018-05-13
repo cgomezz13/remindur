@@ -15,7 +15,7 @@ class taskForm extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchAllTasks();
   }
 
