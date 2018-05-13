@@ -1,7 +1,7 @@
 class Api::ListsController < ApplicationController
 
   def index
-    @list = current_user.lists
+    @lists = current_user.lists
     render :index
   end
 
@@ -9,8 +9,7 @@ class Api::ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user_id = current_user.id
     if @list.save
-      @tasks = @list.tasks
-      render 'api/tasks/index'
+      render :show
     else
       errors = @list.errors.full_messages
       render json: error, status: 401
@@ -20,9 +19,9 @@ class Api::ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     if @list.update(list_params)
-      render :index
+      render :show
     else
-      errors = @list.errors.full_messages
+      errors = list.errors.full_messages
       render json: error, status: 401
     end
   end
