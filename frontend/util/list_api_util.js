@@ -1,19 +1,19 @@
-const createList = (list) => {
+export const createList = (list) => {
   return $.ajax ({
-    method: 'PATCH',
+    method: 'POST',
     url: '/api/lists',
     data: { list: list }
   })
 }
 
-const fetchAllLists = () => {
+export const fetchAllLists = () => {
   return $.ajax ({
     method: 'GET',
     url: '/api/lists'
   })
 }
 
-const updateList = (list) => {
+export const updateList = (list) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/lists/${list.id}`,
@@ -21,14 +21,14 @@ const updateList = (list) => {
   })
 }
 
-const deleteList = (id) => {
+export const deleteList = (id) => {
   return $.ajax ({
     method: 'DELETE',
     url: `/api/lists/${id}`
   })
 }
 
-const fetchListsTask = (id) => {
+export const fetchListsTask = (id) => {
   return $.ajax ({
     method: 'GET',
     url: `/api/lists/${id}`

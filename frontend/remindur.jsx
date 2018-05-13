@@ -6,6 +6,7 @@ import configureStore from './store/store';
 import { logout } from './actions/session_actions';
 
 import { createTask, deleteTask, updateTask } from './actions/task_actions';
+import { fetchAllLists, createNewList } from './actions/list_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -25,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createTask = createTask;
   window.deleteTask = deleteTask;
   window.updateTask = updateTask;
+  window.fetchAllLists = fetchAllLists;
+  window.createNewList = createNewList;
 
   ReactDOM.render(<Root store={store}/>, document.getElementById("root"))
 })

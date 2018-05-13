@@ -12,9 +12,13 @@ List.destroy_all
 
 demo = User.create!({first_name:'Guest', last_name:'User', username:'guest', email:'guest@user.com', password:'password'})
 
+list = List.create!({list_title: 'testing testing', user_id: demo.id})
+
 Task.create!([
   {body:'the first task', status:'false', user_id: demo.id},
   {body:'number two', status:'true', user_id: demo.id},
   {body:'hope this works', status:'true', user_id: demo.id},
-  {body:'hey guest', note:'surprise! a note', status:'true', user_id: demo.id}
+  {body:'hey guest', note:'surprise! a note', status:'true', user_id: demo.id},
+  {body:'should belong to list', note:'am I present?', status:'true', user_id: demo.id, list_id: list.id},
+  {body:'BAM!!!!', note:'WE ARE ROLLING', status:'true', user_id: demo.id, list_id: list.id},
 ])

@@ -9,7 +9,7 @@ class Api::ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user_id = current_user.id
     if @list.save
-      @tasks = list.tasks
+      @tasks = @list.tasks
       render 'api/tasks/index'
     else
       errors = @list.errors.full_messages
