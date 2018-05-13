@@ -6,12 +6,47 @@
   justify-content: space-between;
 }
 
-.user-nav-right {
+.gear-dropdown-btn {
   font-size: 25px;
   opacity: 0.5;
+  position: relative;
 }
 
-.user-nav-right:hover {
-  // filter: brightness(150%);
+.gear-dropdown-btn:hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hidden-dropdown {
+  display: none;
+}
+
+.visible-dropdown {
+  position: absolute;
+  font-size: 14px;
+  white-space: nowrap;
+  background: #fff;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  right: 37px;
+}
+
+.logout-link {
+  font-size: 15px;
+  padding: 8px;
+}
+
+.setting-guest-name {
+  font-size: 15px;
+  opacity: 0.5;
+  width: 50px;
+  padding: 8px;
+}
+
+.logout-link:hover {
   opacity: 1;
 }

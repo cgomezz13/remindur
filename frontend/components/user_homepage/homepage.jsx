@@ -1,7 +1,7 @@
 import React from 'react';
+import GearDropdown from './dropdown'
 
-
-const user_homepage = () => {
+const user_homepage = (props) => {
 
   return (
     <header className='user-page-navbar'>
@@ -10,12 +10,11 @@ const user_homepage = () => {
         search here
       </section>
 
-      <section className='user-nav-right'>
-        <i class="fas fa-cog"></i>
 
-      </section>
+      <GearDropdown user={props.current_user} logout={props.logout}/>
+
 
     </header>
   )
 }
-export default user_homepage
+export default user_homepage;
