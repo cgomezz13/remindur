@@ -19,9 +19,9 @@ class ListForm extends React.Component {
     })
 
     return (
-      <section className='list-titles'>
-        <h2>New Lists Go Below</h2>
-        {allLists}
+      <section className='lists-siderbar'>
+        <h2>L I S T S</h2>
+        <ul className='list-titles'>{allLists}</ul>
       </section>
     )
 

@@ -27,7 +27,7 @@ export default class GearDropdown extends React.Component {
     return (
       <section>
         <div className='gear-dropdown-btn' onClick={()=>this.changeVisibility()}>
-          <i class="fas fa-cog"></i>
+          <i className="fas fa-cog"></i>
         </div>
 
         <div className={this.state.visible ? 'visible-dropdown' : 'hidden-dropdown'}>

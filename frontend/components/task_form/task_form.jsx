@@ -29,19 +29,24 @@ class taskForm extends React.Component {
   render () {
     const allTasks = this.props.tasks.map(task => {
       return (
-        <li key='task.id' id='task items'>{task.body}</li>
+        <label key={task.id}>
+          <input type='checkbox'  />
+          <span>{task.body}</span>
+        </label>
       )
     });
 
     return (
-      <section>
-        <h1>HERE</h1>
-        <form onSubmit={this.handleSubmit} className='task-form'>
-          <input onChange={this.update('body')} type='text' value={this.state.body} placeholder='Add a Task'/>
-          <input type='submit' value='Add Task' />
-        </form>
-        <ul>{allTasks}</ul>
-      </section>
+        <section className='main-form'>
+          <h1>Tasks</h1>
+          <form onSubmit={this.handleSubmit} className='task-form'>
+            <input onChange={this.update('body')} type='text' value={this.state.body} placeholder='Add a Task'/>
+            <input type='submit' value='Add Task' />
+          </form>
+          <section className='list-items'>
+            <ul>{allTasks}</ul>
+          </section>
+        </section>
     )
   }
 }

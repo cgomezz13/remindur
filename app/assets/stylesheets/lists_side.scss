@@ -1,0 +1,24 @@
+.lists-siderbar {
+  width: 175px;
+  position: absolute;
+  background-color: #eee;
+  top: 80px;
+  bottom: 0;
+  height: auto;
+}
+
+.lists-siderbar h2 {
+  text-align: center;
+}
+
+.lists-siderbar > * {
+  cursor: pointer;
+}
+
+.lists-siderbar li {
+  // background-color: #eee;
+  padding: 4px;
+  font-size: 13px;
+  padding-left: 10px;
+  overflow: hidden;
+}
