@@ -6,6 +6,7 @@ class ListForm extends React.Component {
 
     this.state = {list_title: '', visible: false}
     this.changeVisibility = this.changeVisibility.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount () {
@@ -16,20 +17,26 @@ class ListForm extends React.Component {
     this.setState({visible: !this.state.visible });
   }
 
+  update(type) {
+    return e => {
+      this.setState({[type]: e.target.value});
+    };
+  }
+
+  handleSubmit (e) {
+    e.preventDefault();
+    const list = Object.assign({}, {list_title: this.state.list_title});
+    this.changeVisibility();
+    this.setState({['list_title']: ''});
+    this.props.createNewList(list);
+  }
+
   render () {
     const allLists = this.props.lists.map(list => {
       return (
         <li key={list.id}>{list.list_title}</li>
       )
     })
-
-    // Get the modal
-    var modal = document.getElementById('myModal');
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("list-btn");
-
-    var close = document.getElementsByClassName("close")[0];
 
 
     return (
@@ -41,11 +48,11 @@ class ListForm extends React.Component {
 
           <div id='myModal' className={this.state.visible ? 'visible-list-modal' : 'hidden-list-modal'}>
             <div className='modal-content'>
-              <span className="close">&times;</span>
+              <span onClick={()=>this.changeVisibility()} className="close">&times;</span>
               <h1>Add a List</h1>
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <label>Please enter a list name:</label>
-                <input type='text'></input>
+                <input onChange={this.update('list_title')} type='text' value={this.state.list_title}></input>
                 <input type='submit' value='Add'></input>
               </form>
             </div>

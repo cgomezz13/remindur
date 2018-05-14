@@ -7,9 +7,8 @@
 }
 
 #myModal {
-  // display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  position: fixed;
+  z-index: 1;
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
@@ -23,7 +22,43 @@
 .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
+    padding: 29px 37px 29px 37px;
     border: 1px solid #888;
-    width: 80%;
+    width: 30%;
+}
+
+.modal-content form {
+  padding-bottom: 30px;
+}
+
+.close {
+  float: right;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.modal-content h1 {
+  padding: 15px 0px;
+}
+
+.modal-content form label {
+  display: block;
+  padding: 0 0 15px 0;
+}
+
+.modal-content form input {
+  display: block;
+}
+
+.modal-content form input[type='text'] {
+  display: block;
+  border: 1px solid;
+  width: 98%;
+  padding: 5px 10px;
+}
+
+.modal-content form input[type='submit'] {
+  display: block;
+  float: right;
+  padding: 15px 0 15px 0;
 }
