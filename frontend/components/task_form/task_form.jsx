@@ -29,7 +29,7 @@ class taskForm extends React.Component {
   render () {
     const allTasks = this.props.tasks.map(task => {
       return (
-        <label key={task.id}>
+        <label key={task.id} className="Lifazul">
           <input type='checkbox'  />
           <span>{task.body}</span>
         </label>
@@ -37,6 +37,7 @@ class taskForm extends React.Component {
     });
 
     return (
+
         <section className='main-form'>
           <h1>Tasks</h1>
           <form onSubmit={this.handleSubmit} className='task-form'>
@@ -47,6 +48,7 @@ class taskForm extends React.Component {
             <ul>{allTasks}</ul>
           </section>
         </section>
+
     )
   }
 }

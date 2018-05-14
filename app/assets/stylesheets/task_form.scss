@@ -50,7 +50,6 @@
   border-bottom: 1px dotted;
   border-top: 1px solid;
   padding: 2px 0;
-  height: 26px;
   padding-left: 8px;
   padding-right: 8px;
   border-bottom-color: #e5e5e5;
@@ -59,4 +58,16 @@
 
 .list-items ul label span {
   padding: 5px 5px 5px 10px;
+}
+
+header.list-titles {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px dashed;
+}
+
+.Lifazul{
+  display: block;
+  height: auto;
 }
