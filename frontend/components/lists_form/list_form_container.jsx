@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { deleteList, createNewList, updateList, fetchAllLists } from '../../actions/list_actions';
+import { allTasks } from '../../actions/task_actions';
 import ListForm from './list_form';
 
 
@@ -14,7 +15,8 @@ const mapDispatchToProps = (dispatch) => {
     deleteList: (id) => dispatch(deleteList(id)),
     createNewList: (list) => dispatch(createNewList(list)),
     updateList: (list) => dispatch(updateList(list)),
-    fetchAllLists: () => dispatch(fetchAllLists())
+    fetchAllLists: () => dispatch(fetchAllLists()),
+    fetchAllTasks: () => dispatch(allTasks())
   })
 };
 

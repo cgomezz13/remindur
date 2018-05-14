@@ -1,23 +1,38 @@
-.lists-siderbar {
+.main-siderbar {
   width: 175px;
   position: absolute;
   background-color: #eee;
   top: 80px;
   bottom: 0;
   height: auto;
+  overflow: scroll;
 }
 
-.lists-siderbar h2 {
-  text-align: center;
+.main-siderbar section h2 {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px dashed;
+  font-weight: 550;
 }
 
-.lists-siderbar > * {
+.main-siderbar section {
+  display: block;
+}
+
+.main-siderbar > * {
   cursor: pointer;
 }
 
-.lists-siderbar li {
-  // background-color: #eee;
+.main-siderbar li {
   padding: 4px 10px 4px 10px;
   font-size: 13px;
   overflow-wrap: break-word;
+}
+
+header.list-titles {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px dashed;
+  font-weight: 550;
 }

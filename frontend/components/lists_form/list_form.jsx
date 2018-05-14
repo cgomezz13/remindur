@@ -45,8 +45,17 @@ class ListForm extends React.Component {
 
 
     return (
-      <section className='lists-siderbar'>
+      <section className='main-siderbar'>
+        <section>
+          <h2>T A S K S</h2>
+          <li>
+            <Link to={'/tasks'}>All Tasks</Link>
+          </li>
+        </section>
+
+
         <header className='list-titles'>
+
           <h2>L I S T S </h2>
 
           <button id='list-btn' onClick={()=>this.changeVisibility()}><i className="fas fa-plus"></i></button>

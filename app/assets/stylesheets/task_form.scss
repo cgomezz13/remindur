@@ -18,12 +18,22 @@
   padding-right: 8px;
   border-bottom-color: #e5e5e5;
   border-top-color: #fff;
+  height: 100%;
+  overflow: auto;
 }
 
 .main-form h1 {
   padding: 15px 0;
   background-color: #fff;
   text-align: left;
+  position: sticky;
+  top: 0px;
+}
+
+.taskForm {
+  position: sticky;
+  top: 40px;
+  background-color: white;
 }
 
 .task-form input[type=text] {
@@ -44,6 +54,12 @@
   width: auto;
 }
 
+form.task-form {
+  background-color: white;
+  top: 45px;
+  position: sticky;
+}
+
 .list-items ul label {
   display: block;
   width: 100%;
@@ -59,13 +75,6 @@
 .list-items ul label span {
   padding: 5px 5px 5px 10px;
   font-size: 13px;
-}
-
-header.list-titles {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px;
-  border-bottom: 1px dashed;
 }
 
 .Lifazul{
