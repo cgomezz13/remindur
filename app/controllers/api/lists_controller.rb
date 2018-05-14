@@ -1,7 +1,8 @@
 class Api::ListsController < ApplicationController
 
   def index
-    @lists = current_user.lists
+    # @lists = current_user.lists
+    @lists = List.where(user_id: current_user.id).includes(:tasks)
     render :index
   end
 
@@ -27,9 +28,8 @@ class Api::ListsController < ApplicationController
   end
 
   def show
-    list = List.find(params[:id])
-    @tasks = list.tasks
-    render 'api/tasks/index'
+    @list = List.find(params[:id])
+    render :show
   end
 
   def destroy

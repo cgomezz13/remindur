@@ -16,18 +16,27 @@ class taskForm extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchAllTasks();
+    if (this.props.formType === 'no_list') {
+      this.props.action();
+    }
   }
 
   handleSubmit(e){
-    e.preventDefault();
-    const newTask = Object.assign({}, this.state);
-    this.props.createTask(newTask)
+    return e => {
+      e.preventDefault();
+      const newTask = Object.assign({}, this.state);
+      if (this.props.formType === 'list_task') {
+        Object.assign(newTask, {['list_id']: this.props.match.params.listId});
+      }
+      this.setState({['body']: ''});
+      this.props.createTask(newTask)
+    };
   }
 
 
   render () {
     const allTasks = this.props.tasks.map(task => {
+      debugger
       return (
         <label key={task.id} className="Lifazul">
           <input type='checkbox'  />
@@ -40,7 +49,7 @@ class taskForm extends React.Component {
 
         <section className='main-form'>
           <h1>Tasks</h1>
-          <form onSubmit={this.handleSubmit} className='task-form'>
+          <form onSubmit={this.handleSubmit()} className='task-form'>
             <input onChange={this.update('body')} type='text' value={this.state.body} placeholder='Add a Task'/>
             <input type='submit' value='Add Task' />
           </form>

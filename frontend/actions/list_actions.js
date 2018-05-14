@@ -4,6 +4,7 @@ import * as ListAPIUtil from '../util/list_api_util';
 export const FETCH_ALL_LISTS = 'FETCH_ALL_LISTS';
 export const CREATE_NEW_LIST = 'CREATE_NEW_LIST';
 export const UPDATE_LIST = 'UPDATE_LIST';
+export const FETCH_A_LIST = 'FETCH_LIST';
 
 
 export const GetAllLists = (lists) => {
@@ -25,6 +26,14 @@ export const updateAList = (list) => {
   return({
     type: UPDATE_LIST,
     list
+  })
+}
+
+const fetchAList = ({ list, tasks }) => {
+  return ({
+    type: FETCH_A_LIST,
+    list,
+    tasks
   })
 }
 
@@ -56,6 +65,14 @@ export const deleteList = (id) => {
   return dispatch => {
     return ListAPIUtil.deleteList(id).then(lists => {
       return dispatch(GetAllLists(lists))
+    });
+  };
+};
+
+export const fetchList = (id) => {
+  return dispatch => {
+    return ListAPIUtil.fetchListsTask(id).then(lists => {
+      return dispatch(fetchAList(lists))
     });
   };
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ListForm extends React.Component {
   constructor (props) {
@@ -34,7 +35,11 @@ class ListForm extends React.Component {
   render () {
     const allLists = this.props.lists.map(list => {
       return (
-        <li key={list.id}>{list.list_title}</li>
+        <li key={list.id}>
+
+          <Link to={`/lists/${list.id}/tasks`}>{list.list_title}</Link>
+
+        </li>
       )
     })
 

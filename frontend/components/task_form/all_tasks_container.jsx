@@ -5,14 +5,15 @@ import taskForm from './task_form';
 
 const mapStateToProps = (state) => {
   return ({
-    tasks: Object.values(state.tasks)
+    tasks: Object.values(state.tasks),
+    formType: 'no_list'
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return({
     createTask: (task) => dispatch(createTask(task)),
-    fetchAllTasks: () => dispatch(allTasks()),
+    action: () => dispatch(allTasks()),
     deleteTask: (id) => dispatch(deleteTask(id)),
     updateTask: (task) => dispatch(updateTask(task))
   })
