@@ -11,9 +11,9 @@ class ListTaskForm extends React.Component {
   }
 
   render() {
-    const { tasks, action, formType, match, createTask } = this.props;
+    const { tasks, action, formType, match, createTask, history } = this.props;
     return (
-      <TaskForm match={match} tasks={tasks} action={action} createTask={createTask} formType={formType}/>
+      <TaskForm match={match} tasks={tasks} action={action} createTask={createTask} formType={formType} history={history}/>
     );
   }
 }

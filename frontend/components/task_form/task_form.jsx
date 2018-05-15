@@ -1,12 +1,13 @@
 import React from 'react';
-
+import { Redirect } from 'react-router-dom';
 
 class taskForm extends React.Component {
   constructor (props) {
     super(props);
 
     this.state = {body: '', due_date: '', status: '', note: '', list_id: ''};
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.selectionAction = this.selectionAction.bind(this);
   }
 
   update(type){
@@ -33,12 +34,18 @@ class taskForm extends React.Component {
     };
   }
 
+  selectionAction (id) {
+    const path = this.props.match.url +  '/' + id + '/edit';
+    debugger
+    this.props.history.push(path);
+  }
+
 
   render () {
     const allTasks = this.props.tasks.map(task => {
       return (
         <label key={task.id} className="Lifazul">
-          <input type='checkbox' name='selection' />
+          <input onChange={() => this.selectionAction(task.id)} type='checkbox' name='selection' />
           <span>{task.body}</span>
         </label>
       )

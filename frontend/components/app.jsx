@@ -8,6 +8,7 @@ import TaskFormContainer from './task_form/all_tasks_container';
 import UserHomepageContainer from './user_homepage/user_homepage_container';
 import ListFormContainer from './lists_form/list_form_container';
 import ListTaskContainer from './task_form/list_tasks_container';
+import EditTaskContainer from './edit_task/edit_task_container';
 
 const App = () => (
   <div>
@@ -17,9 +18,10 @@ const App = () => (
         <AuthRoute exact path='/signup' component={SessionFormContainer} />
       </Switch>
       <ProtectedRoute path='/' component={UserHomepageContainer} />
-      <ProtectedRoute exact path='/tasks' component={TaskFormContainer} />
       <ProtectedRoute path='/' component={ListFormContainer} />
-      <ProtectedRoute exact path='/lists/:listId/tasks' component={ListTaskContainer} />
+      <ProtectedRoute path='/tasks' component={TaskFormContainer} />
+      <ProtectedRoute path='/lists/:listId/tasks' component={ListTaskContainer} />
+      <ProtectedRoute path='/tasks/:taskId/edit' component={EditTaskContainer} />
   </div>
 );
 
