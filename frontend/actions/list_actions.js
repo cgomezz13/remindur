@@ -4,7 +4,7 @@ import * as ListAPIUtil from '../util/list_api_util';
 export const FETCH_ALL_LISTS = 'FETCH_ALL_LISTS';
 export const CREATE_NEW_LIST = 'CREATE_NEW_LIST';
 export const UPDATE_LIST = 'UPDATE_LIST';
-export const FETCH_A_LIST = 'FETCH_LIST';
+export const FETCH_A_LIST = 'FETCH_A_LIST';
 
 
 export const GetAllLists = (lists) => {

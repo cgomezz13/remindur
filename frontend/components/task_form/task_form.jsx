@@ -38,7 +38,7 @@ class taskForm extends React.Component {
     const allTasks = this.props.tasks.map(task => {
       return (
         <label key={task.id} className="Lifazul">
-          <input type='checkbox'  />
+          <input type='checkbox' name='selection' />
           <span>{task.body}</span>
         </label>
       )

@@ -36,3 +36,12 @@ header.list-titles {
   border-bottom: 1px dashed;
   font-weight: 550;
 }
+
+ul.list-titles {
+  overflow: scroll;
+  height: 82%;
+}
+
+.main-siderbar li:hover {
+  opacity: 0.5;
+}

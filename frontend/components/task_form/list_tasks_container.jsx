@@ -4,8 +4,6 @@ import TaskForm from './task_form';
 import { fetchList } from '../../actions/list_actions';
 import { allTasks, createTask } from '../../actions/task_actions';
 
-//http://localhost:3000/api/lists
-
 
 class ListTaskForm extends React.Component {
   componentWillMount () {

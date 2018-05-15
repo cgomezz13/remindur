@@ -3,7 +3,6 @@ import { FETCH_ALL_LISTS, CREATE_NEW_LIST, UPDATE_LIST, FETCH_A_LIST } from '../
 import { RECEIVE_TASK } from '../actions/task_actions';
 import { merge } from 'lodash';
 
-// RECEIVE_TASK
 const listReducer = (state={}, action) => {
   switch (action.type) {
     case FETCH_ALL_LISTS:
@@ -15,9 +14,11 @@ const listReducer = (state={}, action) => {
     case FETCH_A_LIST:
       return merge({}, state, {[action.list.id]: action.list})
     case RECEIVE_TASK:
-      const list = state[action.task.list_id];
-      list.task_ids.push(action.task.id);
-      return merge({}, state, list)
+      if (action.task.list_id) {
+        const list = state[action.task.list_id];
+        list.task_ids.push(action.task.id);
+        return merge({}, state, list)
+      }
     default:
       return state;
   }
