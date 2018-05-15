@@ -35,8 +35,25 @@ class taskForm extends React.Component {
   }
 
   selectionAction (id) {
+    this.setState({task_id: id});
     const path = this.props.match.url +  '/' + id + '/edit';
-    this.props.history.push(path);
+    const last = this.props.match.url;
+    if (this.props.history.location.pathname === path) {
+      this.props.history.push(last);
+    } else {
+      this.props.history.push(path);
+    }
+  }
+
+  isChecked (id) {
+    debugger
+    // if (this.props.match.path === '/tasks'|| this.props.match.path === '/lists/:listId/tasks') {
+    //   // return (id===this.state.task_id)
+    //   return false
+    // } else {
+    //   // return false
+    // }
+    return (id===this.state.task_id)
   }
 
 
@@ -44,7 +61,7 @@ class taskForm extends React.Component {
     const allTasks = this.props.tasks.map(task => {
       return (
         <label key={task.id} className="Lifazul">
-          <input onChange={() => this.selectionAction(task.id)} type='checkbox' name='selection' />
+          <input onClick={() => this.selectionAction(task.id)} checked={this.isChecked(task.id)} type='checkbox' name='selection' />
           <span>{task.body}</span>
         </label>
       )

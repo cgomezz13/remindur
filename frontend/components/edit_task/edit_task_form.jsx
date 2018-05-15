@@ -12,6 +12,10 @@ class EditTask extends React.Component {
     this.props.fetchAllTasks();
   }
 
+  componentWillReceiveProps (newProps) {
+    this.setState({list: newProps.list, task: newProps.task})
+  }
+
   updateBody() {
     return e => {
       const newState = this.state.task
