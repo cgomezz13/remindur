@@ -36,7 +36,6 @@ class taskForm extends React.Component {
 
   selectionAction (id) {
     const path = this.props.match.url +  '/' + id + '/edit';
-    debugger
     this.props.history.push(path);
   }
 

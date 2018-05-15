@@ -22,6 +22,7 @@ const App = () => (
       <ProtectedRoute path='/tasks' component={TaskFormContainer} />
       <ProtectedRoute path='/lists/:listId/tasks' component={ListTaskContainer} />
       <ProtectedRoute path='/tasks/:taskId/edit' component={EditTaskContainer} />
+      <ProtectedRoute path='/lists/:listId/tasks/:taskId/edit' component={EditTaskContainer} />
   </div>
 );
 
