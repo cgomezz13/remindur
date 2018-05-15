@@ -6,3 +6,30 @@
   width: 41%;
   height: 88%;
 }
+
+.edit-task-form textarea {
+  display: block;
+  margin: 10px 25px 15px 25px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  width: 85%;
+  height: 100px;
+}
+
+.edit-task-form textarea:focus {
+  background-color: #FFFAF0;
+}
+
+.edit-task-form input[type='submit'] {
+  background-color: #FFEFD5;
+  padding: 8px 5px 8px 5px;
+  position: relative;
+  left: 425px;
+}
+
+.edit-task-form h1 {
+  padding: 15px 0;
+  text-align: left;
+  padding: 15px 5px;
+
+}

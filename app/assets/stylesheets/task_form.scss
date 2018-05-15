@@ -41,8 +41,15 @@
   box-sizing: border-box;
 }
 
+.task-form input:focus {
+  background-color: #FFFAF0;
+}
+
 .task-form input[type=submit] {
-  display: none;
+  position: relative;
+  left: 465px;
+  padding: 8px 5px 8px 5px;
+  background-color: #FFEFD5;
 }
 
 .task-form input[type=checkbox] {
