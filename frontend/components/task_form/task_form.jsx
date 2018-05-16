@@ -5,7 +5,7 @@ class taskForm extends React.Component {
   constructor (props) {
     super(props);
 
-    this.state = {body: '', due_date: '', status: '', note: '', list_id: ''};
+    this.state = {body: '', due_date: '', status: '', note: '', list_id: '', selectedTaskIds: [] };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.selectionAction = this.selectionAction.bind(this);
   }
@@ -16,10 +16,8 @@ class taskForm extends React.Component {
     };
   }
 
-  componentWillMount() {
-    if (this.props.formType === 'no_list') {
-      this.props.action();
-    }
+  componentDidMount() {
+    this.props.action(this.props.match.params.listId);
   }
 
   handleSubmit(e){
@@ -27,32 +25,39 @@ class taskForm extends React.Component {
       e.preventDefault();
       const newTask = Object.assign({}, this.state);
       if (this.props.formType === 'list_task') {
-        Object.assign(newTask, {['list_id']: this.props.match.params.listId});
+        Object.assign(newTask, {list_id: this.props.match.params.listId});
       }
-      this.setState({['body']: ''});
-      this.props.createTask(newTask)
+      this.props.createTask(newTask).then(() => this.setState({body: ''}));
     };
   }
 
   selectionAction (id) {
-    this.setState({task_id: id});
-    const path = this.props.match.url +  '/' + id + '/edit';
+    const selectedIds = Object.assign([], this.state.selectedTaskIds );
     const last = this.props.match.url;
-    if (this.props.history.location.pathname === path) {
-      this.props.history.push(last);
+
+    if (selectedIds.length === 0) {
+      const path = last +  '/' + id + '/edit';
+      this.props.history.push(path)
     } else {
-      this.props.history.push(path);
+      this.props.history.push(last);
+      if (selectedIds.length > 1) {
+        console.log('FORM'); // Add form to delete all tasks
+      }
     }
+
+    if (selectedIds.includes(id)) {
+      const idx = selectedIds.indexOf(id);
+      selectedIds.splice(idx, 1);
+      this.setState({selectedTaskIds: selectedIds});
+    } else {
+      selectedIds.push(id);
+      this.setState({selectedTaskIds: selectedIds});
+    }
+
   }
 
   isChecked (id) {
-    // if (this.props.match.path === '/tasks'|| this.props.match.path === '/lists/:listId/tasks') {
-    //   // return (id===this.state.task_id)
-    //   return false
-    // } else {
-    //   // return false
-    // }
-    return (id===this.state.task_id)
+    this.state.selectedTaskIds.includes(id)
   }
 
 

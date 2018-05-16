@@ -1,6 +1,6 @@
 import * as TaskAPIUtil from '../util/task_api_util';
 
-export const FETCH_ALL_TASKS = 'RECEIVE_ALL_TASKS';
+export const FETCH_ALL_TASKS = 'FETCH_ALL_TASKS';
 export const RECEIVE_TASK = 'RECEIVE_TASK';
 // export const DELETE_TASK = 'DELETE_TASK'; delete task should return all tasks now?
 

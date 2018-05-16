@@ -8,7 +8,7 @@ class EditTask extends React.Component {
     this.updateBody = this.updateBody.bind(this);
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.props.fetchAllTasks();
   }
 

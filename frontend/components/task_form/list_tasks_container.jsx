@@ -6,10 +6,6 @@ import { allTasks, createTask } from '../../actions/task_actions';
 
 
 class ListTaskForm extends React.Component {
-  componentWillMount () {
-    this.props.action(this.props.match.params.listId);
-  }
-
   render() {
     const { tasks, action, formType, match, createTask, history } = this.props;
     return (
@@ -30,7 +26,7 @@ const mapStateToProps = (state, ownProps) => {
     }
   }
   const list_tasks = list.task_ids.map(id => {
-    return ( state.tasks[id] );
+    return ( state.tasks[id] || {} );
   });
 
   return ({

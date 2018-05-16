@@ -14,7 +14,6 @@ class EditListDropdown extends React.Component {
   }
 
   handleDelete (id) {
-    debugger
     return e => {
       e.preventDefault();
       this.props.delete(id);

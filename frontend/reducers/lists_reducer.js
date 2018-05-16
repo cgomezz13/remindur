@@ -15,13 +15,17 @@ const listReducer = (state={}, action) => {
       return merge({}, state, {[action.list.id]: action.list})
     case RECEIVE_TASK:
       if (action.task.list_id) {
-        const list = state[action.task.list_id];
+        const newState = merge({}, state);
+        const list = newState[action.task.list_id];
         list.task_ids.push(action.task.id);
-        return merge({}, state, list)
+        debugger
+        return merge({}, state, {[list.id]: list});
+      } else {
+        return merge({}, state);
       }
     case DELETE_LIST:
       const newState = merge({},state);
-      delete newState[action.id];
+      delete newState[action.list.id];
       return newState;
     default:
       return state;
