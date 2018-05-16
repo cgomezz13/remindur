@@ -37,6 +37,7 @@ class EditTask extends React.Component {
     return (
       <section className='edit-task-form'>
         <h1>Task Details</h1>
+
         <form onSubmit={this.handleSubmit()}>
           <textarea type='text' onChange={this.updateBody()} value={this.state.task.body}></textarea>
           <input type='submit' value='Update'></input>

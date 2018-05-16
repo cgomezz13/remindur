@@ -46,7 +46,6 @@ class taskForm extends React.Component {
   }
 
   isChecked (id) {
-    debugger
     // if (this.props.match.path === '/tasks'|| this.props.match.path === '/lists/:listId/tasks') {
     //   // return (id===this.state.task_id)
     //   return false

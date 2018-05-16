@@ -8,7 +8,7 @@ const listReducer = (state={}, action) => {
     case FETCH_ALL_LISTS:
       return action.lists;
     case CREATE_NEW_LIST:
-      return merge({}, state, {[action.list.id]: action.list})
+      return merge({}, state, {[action.list.list.id]: action.list.list})
     case UPDATE_LIST:
       return merge({}, state, {[action.list.id]: action.list})
     case FETCH_A_LIST:

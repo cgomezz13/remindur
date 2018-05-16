@@ -36,9 +36,8 @@ class ListForm extends React.Component {
     const allLists = this.props.lists.map(list => {
       return (
         <li key={list.id}>
-
-          <Link to={`/lists/${list.id}/tasks`}>{list.list_title}</Link>
-
+          <Link className='list-link' to={`/lists/${list.id}/tasks`}>{list.list_title}</Link>
+            <i className="fas fa-caret-down" id='list-dropdown'></i>
         </li>
       )
     })

@@ -45,3 +45,23 @@ ul.list-titles {
 .main-siderbar li:hover {
   opacity: 0.5;
 }
+
+.list-titles li {
+  justify-content: space-between;
+  width: auto;
+  display: flex;
+}
+
+.list-link {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#list-dropdown {
+  visibility: hidden;
+}
+
+.list-titles li:hover > #list-dropdown {
+  visibility: visible;
+}
