@@ -58,10 +58,29 @@ ul.list-titles {
   overflow: hidden;
 }
 
-#list-dropdown {
+.list-dropdown {
   visibility: hidden;
 }
 
-.list-titles li:hover > #list-dropdown {
+.list-titles li:hover > section > .list-dropdown {
   visibility: visible;
+}
+
+.hidden-list-dropdown {
+  display: none;
+}
+
+.visible-list-dropdown {
+  position: absolute;
+  font-size: 14px;
+  white-space: nowrap;
+  background: #fff;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  right: 37px;
+  z-index: 6;
 }

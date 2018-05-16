@@ -5,6 +5,7 @@ export const FETCH_ALL_LISTS = 'FETCH_ALL_LISTS';
 export const CREATE_NEW_LIST = 'CREATE_NEW_LIST';
 export const UPDATE_LIST = 'UPDATE_LIST';
 export const FETCH_A_LIST = 'FETCH_A_LIST';
+export const DELETE_LIST = 'DELETE_LIST';
 
 
 export const GetAllLists = (lists) => {
@@ -37,6 +38,13 @@ const fetchAList = ({ list, tasks }) => {
   })
 }
 
+const removelist = (id) => {
+  return ({
+    type: DELETE_LIST,
+    id
+  })
+}
+
 export const fetchAllLists = () => {
   return dispatch => {
     return ListAPIUtil.fetchAllLists().then(lists => {
@@ -63,8 +71,8 @@ export const updateList = (list) => {
 
 export const deleteList = (id) => {
   return dispatch => {
-    return ListAPIUtil.deleteList(id).then(lists => {
-      return dispatch(GetAllLists(lists))
+    return ListAPIUtil.deleteList(id).then(() => {
+      return dispatch(removelist(id))
     });
   };
 };

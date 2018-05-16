@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import EditListDropdown from './edit_list_dropdown';
 
 class ListForm extends React.Component {
   constructor (props) {
@@ -37,7 +38,7 @@ class ListForm extends React.Component {
       return (
         <li key={list.id}>
           <Link className='list-link' to={`/lists/${list.id}/tasks`}>{list.list_title}</Link>
-            <i className="fas fa-caret-down" id='list-dropdown'></i>
+          <EditListDropdown list={list} edit={this.props.updateList} delete={this.props.deleteList} />
         </li>
       )
     })

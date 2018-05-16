@@ -1,5 +1,5 @@
 import React from 'react';
-import { FETCH_ALL_LISTS, CREATE_NEW_LIST, UPDATE_LIST, FETCH_A_LIST } from '../actions/list_actions';
+import { FETCH_ALL_LISTS, CREATE_NEW_LIST, UPDATE_LIST, FETCH_A_LIST, DELETE_LIST } from '../actions/list_actions';
 import { RECEIVE_TASK } from '../actions/task_actions';
 import { merge } from 'lodash';
 
@@ -19,6 +19,10 @@ const listReducer = (state={}, action) => {
         list.task_ids.push(action.task.id);
         return merge({}, state, list)
       }
+    case DELETE_LIST:
+      const newState = merge({},state);
+      delete newState[action.id];
+      return newState;
     default:
       return state;
   }
