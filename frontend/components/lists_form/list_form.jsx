@@ -38,7 +38,7 @@ class ListForm extends React.Component {
       return (
         <li key={list.id}>
           <Link className='list-link' to={`/lists/${list.id}/tasks`}>{list.list_title}</Link>
-          <EditListDropdown list={list} edit={this.props.updateList} delete={this.props.deleteList} />
+          <EditListDropdown list={list} update={this.props.updateList} delete={this.props.deleteList} />
         </li>
       )
     })
