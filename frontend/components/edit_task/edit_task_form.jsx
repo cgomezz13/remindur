@@ -10,6 +10,7 @@ class EditTask extends React.Component {
     this.updateBody = this.updateBody.bind(this);
     this.updateStatus = this.updateStatus.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.updateDueDate = this.updateDueDate.bind(this);
   }
 
   componentDidMount () {
@@ -32,6 +33,13 @@ class EditTask extends React.Component {
       if (e.target.value==='true') { (this.state.task.status = true); }
       if (e.target.value==='false') { (this.state.task.status = false); }
       this.setState(this.state.task);
+    }
+  }
+
+  updateDueDate () {
+    return e => {
+      this.state.task.due_date = e.target.value;
+      this.setState(this.state.task)
     }
   }
 
@@ -81,11 +89,7 @@ class EditTask extends React.Component {
         </section>
 
         <h1>Due</h1>
-        <input type='date' name='due-date' placeholder='never'></input>
-        <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date" />
-        <input type="date" placeholder="MY PLACEHOLDER" onchange="this.className=(this.value!=''?'has-value':'')" />
-        <input type="date" placeholder="Date" required />
-        <input type='submit'></input>
+        <input onChange= {this.updateDueDate()} type='date' name='due-date' value={this.state.task.due_date}></input>
 
         <h1>Notes:</h1>
         <h1>{this.state.task.note}</h1>
