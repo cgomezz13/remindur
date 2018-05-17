@@ -42,9 +42,9 @@ ul.list-titles {
   height: 82%;
 }
 
-.main-siderbar li:hover {
-  opacity: 0.5;
-}
+// .main-siderbar li:hover {
+//   opacity: 0.5;
+// }
 
 .list-titles li {
   justify-content: space-between;
@@ -71,7 +71,7 @@ ul.list-titles {
 }
 
 .visible-list-dropdown {
-  position: absolute;
+  // position: absolute;
   font-size: 14px;
   white-space: nowrap;
   background: #fff;

@@ -9,6 +9,7 @@ class EditListDropdown extends React.Component {
     this.changeModalVisibility = this.changeModalVisibility.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   changeDropdownVisibility () {
@@ -16,8 +17,7 @@ class EditListDropdown extends React.Component {
   }
 
   changeModalVisibility () {
-    this.setState({modalVisibility: !this.state.modalVisibility})
-    console.log('here');
+    this.setState({modalVisibility: !this.state.modalVisibility});
   }
 
 
@@ -30,7 +30,7 @@ class EditListDropdown extends React.Component {
 
   handleSubmit () {
     const updatedList = Object.assign({}, this.props.list, {list_title: this.state.list_title});
-    this.props.update(updateList);
+    this.props.update(updatedList).then(this.changeModalVisibility()).then(this.changeDropdownVisibility());
   }
 
   update () {
@@ -40,26 +40,31 @@ class EditListDropdown extends React.Component {
   }
 
 
+  handleClose () {
+    this.changeModalVisibility();
+    this.changeDropdownVisibility();
+  }
+
   render () {
     const editList = (
-      <section>
+
         <li>
           <button onClick={()=>this.changeModalVisibility()} className='edit-list'>Rename List</button>
+          <div id='listModal' className={this.state.modalVisibility ? 'visible-edit-list-modal' : 'hidden-edit-list-modal'}>
+            <div className='modal-edit-content'>
+              <span onClick={() => this.handleClose()} className='edit-close'>&times;</span>
+              <h1>Rename list</h1>
+              <form onSubmit={this.handleSubmit}>
+                <label>List name:</label>
+                <input onChange={this.update()} type='text' value={this.state.list_title}></input>
+                <input type='submit' value='Rename'></input>
+              </form>
+            </div>
+          </div>
         </li>
 
-        <div id='myModal' className={this.state.modalVisibility ? 'visible-list-modal' : 'hidden-list-modal'}>
-          <div className='modal-content'>
-            <span onClick={() => this.changeModalVisibility()} className='close'>&times;</span>
-            <h1>Rename list</h1>
-            <form onSubmit={this.handleSubmit}>
-              <label>List name:</label>
-              <input onChange={this.update()} type='text' value={this.state.list_title}></input>
-              <input type='submit' value='Rename'></input>
-            </form>
-          </div>
-        </div>
 
-      </section>
+
     );
 
     const deleteList = (
