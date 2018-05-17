@@ -92,7 +92,7 @@ class EditTask extends React.Component {
         <input onChange= {this.updateDueDate()} type='date' name='due-date' value={this.state.task.due_date}></input>
 
         <h1>Notes:</h1>
-        <h1>{this.state.task.note}</h1>
+        <input type='text' value={this.state.task.note}></input>
 
         <input type='submit' value='Update'></input>
         </form>
