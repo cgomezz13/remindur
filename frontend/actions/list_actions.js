@@ -73,7 +73,6 @@ export const updateList = (list) => {
 export const deleteList = (id) => {
   return dispatch => {
     return ListAPIUtil.deleteList(id).then(({task_ids: taskIds}) => {
-      debugger
       return dispatch(removelist({taskIds, listId: id}))
     });
   };

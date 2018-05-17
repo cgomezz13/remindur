@@ -35,8 +35,6 @@ class Api::ListsController < ApplicationController
   def destroy
     list = List.find(params[:id])
     @task_ids = list.tasks.pluck(:id)
-    # @tasks = @list.tasks
-    # debugger
     list.destroy
     render :delete
   end

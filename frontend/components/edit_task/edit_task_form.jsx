@@ -38,7 +38,12 @@ class EditTask extends React.Component {
   handleSubmit (e) {
     return e => {
       e.preventDefault();
-      this.props.updateTask(this.state.task);
+      this.props.updateTask(this.state.task).then(() => {
+        const currentUrl = this.props.location.pathname.split('/');
+        currentUrl.splice(-2, 2);
+        const redirectToUrl = currentUrl.join('/');
+        this.props.history.push(redirectToUrl);
+      });
     };
   }
 
@@ -74,6 +79,13 @@ class EditTask extends React.Component {
           <input onChange={this.updateStatus()} type='radio' value='true' name='status' checked={this.state.task.status === true } ></input><label>Complete</label>
           <input onChange={this.updateStatus()} type='radio' value='false' name='status' checked={this.state.task.status === false } ></input><label>Incomplete</label>
         </section>
+
+        <h1>Due</h1>
+        <input type='date' name='due-date' placeholder='never'></input>
+        <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date" />
+        <input type="date" placeholder="MY PLACEHOLDER" onchange="this.className=(this.value!=''?'has-value':'')" />
+        <input type="date" placeholder="Date" required />
+        <input type='submit'></input>
 
         <h1>Notes:</h1>
         <h1>{this.state.task.note}</h1>
