@@ -13,12 +13,12 @@ import EditTaskContainer from './edit_task/edit_task_container';
 const App = () => (
   <div>
       <Switch>
-        <Route exact path='/' component={Welcome} />
+        <Route exact path='/welcome' component={Welcome} />
         <AuthRoute exact path='/login' component={SessionFormContainer} />
         <AuthRoute exact path='/signup' component={SessionFormContainer} />
       </Switch>
-      <ProtectedRoute path='/tasks' component={UserHomepageContainer} />
-      <ProtectedRoute path='/tasks' component={ListFormContainer} />
+      <ProtectedRoute path='/' component={UserHomepageContainer} />
+      <ProtectedRoute path='/' component={ListFormContainer} />
       <ProtectedRoute path='/tasks' component={TaskFormContainer} />
       <ProtectedRoute path='/lists/:listId/tasks' component={ListTaskContainer} />
       <ProtectedRoute path='/tasks/:taskId/edit' component={EditTaskContainer} />

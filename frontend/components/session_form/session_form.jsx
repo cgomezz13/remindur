@@ -68,7 +68,7 @@ class SessionForm extends React.Component {
       <section className='session-page'>
 
         <section className='session-page-left-side'>
-          <Link to={'/'}><h1>LEFT SIDE</h1></Link>
+          <Link to={'/welcome'}><h1>LEFT SIDE</h1></Link>
         </section>
 
         <section className='session-page-right-side'>
