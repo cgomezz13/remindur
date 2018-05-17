@@ -1,11 +1,13 @@
 import React from 'react';
 
+// taskk has status, complete='true' incomplete='false'
+
 class EditTask extends React.Component {
   constructor (props) {
     super(props);
 
     this.state = {list: this.props.list, task: this.props.task};
-    this.updateBody = this.updateBody.bind(this);
+    this.update = this.update.bind(this);
   }
 
   componentDidMount () {
@@ -16,11 +18,12 @@ class EditTask extends React.Component {
     this.setState({list: newProps.list, task: newProps.task})
   }
 
-  updateBody() {
+  update(type) {
     return e => {
-      const newState = this.state.task
-      newState.body = e.target.value
-      this.setState(newState)
+      // const newState = this.state.task
+      debugger
+      this.state.task[type] = e.target.value
+      this.setState(this.state.task)
     }
   }
 
@@ -41,22 +44,20 @@ class EditTask extends React.Component {
       title = null;
     }
 
-    const complete = 'Complete';
-    const incomplete = 'Incomplete';
 
     return (
       <section className='edit-task-form'>
         <h1>Details</h1>
         {title}
         <form onSubmit={this.handleSubmit()}>
-          <textarea type='text' onChange={this.updateBody()} value={this.state.task.body}></textarea>
+          <textarea type='text' onChange={this.update('body')} value={this.state.task.body}></textarea>
           <input type='submit' value='Update'></input>
         </form>
 
         <h1>Status</h1>
         <section className='task-Status'>
-          <input type='radio' value='true' name='status' ></input><label>Complete</label>
-          <input type='radio' value='false' name='status'></input><label>Incomplete</label>
+          <input onChange={this.update('status')} type='radio' value='true' name='status' checked={this.props.task.status === true} ></input><label>Complete</label>
+          <input onChange={this.update('status')} type='radio' value='false' name='status' checked={this.props.task.status === false} ></input><label>Incomplete</label>
         </section>
 
         <h1>Notes:</h1>
