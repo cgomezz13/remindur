@@ -17,11 +17,14 @@ const listReducer = (state={}, action) => {
       if (action.task.list_id) {
         const newState = merge({}, state);
         const list = newState[action.task.list_id];
+        if (list.task_ids.includes(action.task.id)) { return state; }
+        // does the list already have this task id?
+        // if so, don't add it in again
+        // if not, add it in
         list.task_ids.push(action.task.id);
-        debugger
-        return merge({}, state, {[list.id]: list});
+        return newState;
       } else {
-        return merge({}, state);
+        return state;
       }
     case DELETE_LIST:
       const newState = merge({},state);
