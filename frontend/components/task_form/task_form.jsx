@@ -41,7 +41,7 @@ class taskForm extends React.Component {
     } else {
       this.props.history.push(last);
       if (selectedIds.length > 1) {
-        console.log('FORM'); // Add form to delete all tasks
+        console.log('FORM'); // Add form to delete all selected tasks
       }
     }
 

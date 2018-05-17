@@ -10,18 +10,12 @@ const taskReducer = (state={} , action) => {
       return action.tasks
     case FETCH_A_LIST:
       return merge({}, state, action.tasks)
-    // case DELETE_LIST:
-    //   const newState = merge({}, state);
-    //   if (action.tasks) {
-    //     const tasks = action.list.task_ids;
-    //     for (var i = 0; i < tasks.length; i++) {
-    //       delete newState[tasks[i]]
-    //     }
-    //     debugger
-    //     return newState;
-    //   } else {
-    //     return newState;
-    //   }
+    case DELETE_LIST:
+      const newState = merge({}, state);
+      action.taskIds.forEach(id => {
+        delete newState[id]
+      })
+      return newState;
     default:
       return state;
   }

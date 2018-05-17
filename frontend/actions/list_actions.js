@@ -38,11 +38,11 @@ const fetchAList = ({ list, tasks }) => {
   })
 }
 
-const removelist = ({list, tasks}) => {
+const removelist = ({listId, taskIds}) => {
   return ({
     type: DELETE_LIST,
-    list,
-    tasks
+    listId,
+    taskIds
   })
 }
 
@@ -72,8 +72,9 @@ export const updateList = (list) => {
 
 export const deleteList = (id) => {
   return dispatch => {
-    return ListAPIUtil.deleteList(id).then(list => {
-      return dispatch(removelist(list))
+    return ListAPIUtil.deleteList(id).then(({task_ids: taskIds}) => {
+      debugger
+      return dispatch(removelist({taskIds, listId: id}))
     });
   };
 };

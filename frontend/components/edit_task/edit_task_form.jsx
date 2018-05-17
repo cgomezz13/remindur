@@ -16,7 +16,6 @@ class EditTask extends React.Component {
   }
 
   componentWillReceiveProps (newProps) {
-    debugger
     this.setState({list: newProps.list, task: newProps.task})
   }
 

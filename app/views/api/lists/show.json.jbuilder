@@ -3,6 +3,7 @@ json.list do
   json.task_ids @list.tasks.pluck(:id)
 end
 
+
 json.tasks do
   @list.tasks.each do |task|
     json.set! task.id do

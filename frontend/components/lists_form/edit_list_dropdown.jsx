@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class EditListDropdown extends React.Component {
   constructor(props){
@@ -24,7 +25,12 @@ class EditListDropdown extends React.Component {
   handleDelete (id) {
     return e => {
       e.preventDefault();
-      this.props.delete(id);
+      this.props.delete(id).then(() => {
+        const listUrlId = +this.props.location.pathname.split("/")[2]
+        if (id === listUrlId) {
+          this.props.history.push('/tasks')
+        }
+      });
     }
   }
 
@@ -90,4 +96,4 @@ class EditListDropdown extends React.Component {
   }
 }
 
-export default EditListDropdown;
+export default withRouter(EditListDropdown);
