@@ -9,6 +9,7 @@ class EditTask extends React.Component {
     this.state = {list: this.props.list, task: this.props.task};
     this.updateBody = this.updateBody.bind(this);
     this.updateStatus = this.updateStatus.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount () {
@@ -37,8 +38,14 @@ class EditTask extends React.Component {
   handleSubmit (e) {
     return e => {
       e.preventDefault();
-      this.props.update(this.state.task);
+      this.props.updateTask(this.state.task);
     };
+  }
+
+  handleDelete (id) {
+    this.props.deleteTask(id).then(() => {
+      this.props.history.push('/tasks');
+    })
   }
 
   render() {
@@ -56,6 +63,8 @@ class EditTask extends React.Component {
       <section className='edit-task-form'>
         <h1>Details</h1>
         {title}
+
+        <button id='delete-task-button' onClick={() => this.handleDelete(this.state.task.id)}>Delete Task</button>
         <form onSubmit={this.handleSubmit()}>
           <textarea type='text' onChange={this.updateBody()} value={this.state.task.body}></textarea>
 

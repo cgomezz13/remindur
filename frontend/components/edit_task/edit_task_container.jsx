@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import EditTaskForm from './edit_task_form';
-import { allTasks, updateTask } from '../../actions/task_actions';
+import { allTasks, updateTask, deleteTask } from '../../actions/task_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const task = state.tasks[ownProps.match.params.taskId] || {};
@@ -15,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     fetchAllTasks: () => dispatch(allTasks()),
-    update: (task) => dispatch(updateTask(task))
+    updateTask: (task) => dispatch(updateTask(task)),
+    deleteTask: (id) => dispatch(deleteTask(id))
   })
 }
 
