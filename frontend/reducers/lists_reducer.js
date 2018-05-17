@@ -18,9 +18,6 @@ const listReducer = (state={}, action) => {
         const newState = merge({}, state);
         const list = newState[action.task.list_id];
         if (list.task_ids.includes(action.task.id)) { return state; }
-        // does the list already have this task id?
-        // if so, don't add it in again
-        // if not, add it in
         list.task_ids.push(action.task.id);
         return newState;
       } else {

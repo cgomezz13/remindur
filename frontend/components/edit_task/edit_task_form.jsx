@@ -7,7 +7,8 @@ class EditTask extends React.Component {
     super(props);
 
     this.state = {list: this.props.list, task: this.props.task};
-    this.update = this.update.bind(this);
+    this.updateBody = this.updateBody.bind(this);
+    this.updateStatus = this.updateStatus.bind(this);
   }
 
   componentDidMount () {
@@ -15,20 +16,26 @@ class EditTask extends React.Component {
   }
 
   componentWillReceiveProps (newProps) {
+    debugger
     this.setState({list: newProps.list, task: newProps.task})
   }
 
-  update(type) {
+  updateBody() {
     return e => {
-      const newState = this.state.task;
-      newState[type] = e.target.value;
-      debugger
-      this.setState(this.state.task)
+      this.state.task.body = e.target.value;
+      this.setState(this.state.task);
+    }
+  }
+
+  updateStatus () {
+    return e => {
+      if (e.target.value==='true') { (this.state.task.status = true); }
+      if (e.target.value==='false') { (this.state.task.status = false); }
+      this.setState(this.state.task);
     }
   }
 
   handleSubmit (e) {
-    debugger
     return e => {
       e.preventDefault();
       this.props.update(this.state.task);
@@ -51,13 +58,13 @@ class EditTask extends React.Component {
         <h1>Details</h1>
         {title}
         <form onSubmit={this.handleSubmit()}>
-          <textarea type='text' onChange={this.update('body')} value={this.state.task.body}></textarea>
+          <textarea type='text' onChange={this.updateBody()} value={this.state.task.body}></textarea>
 
 
         <h1>Status</h1>
         <section className='task-Status'>
-          <input onChange={this.update('status')} type='radio' value='true' name='status' checked={this.state.task.status} ></input><label>Complete</label>
-          <input onChange={this.update('status')} type='radio' value='false' name='status' checked={this.state.task.status} ></input><label>Incomplete</label>
+          <input onChange={this.updateStatus()} type='radio' value='true' name='status' checked={this.state.task.status === true } ></input><label>Complete</label>
+          <input onChange={this.updateStatus()} type='radio' value='false' name='status' checked={this.state.task.status === false } ></input><label>Incomplete</label>
         </section>
 
         <h1>Notes:</h1>
