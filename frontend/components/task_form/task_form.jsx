@@ -83,10 +83,10 @@ class taskForm extends React.Component {
     console.log(NumofCompleted);
     console.log(TotalTasks);
 
-    // const taskSummary = ()
 
     return (
 
+        <section>
         <section className='main-form'>
           <h1>Tasks</h1>
           <form onSubmit={this.handleSubmit()} className='task-form'>
@@ -96,11 +96,18 @@ class taskForm extends React.Component {
           <section className='list-items'>
             <ul>{allTasks}</ul>
           </section>
+          </section>
 
           <section className={(this.state.selectedTaskIds.length === 0) ? 'visible-list-summary' : 'hidden-list-summary'}>
             <ul>
-              <li>{NumofCompleted}</li>
-              <li>{TotalTasks}</li>
+              <label>
+                <li>{TotalTasks}</li>
+                Tasks
+              </label>
+              <label>
+                <li>{NumofCompleted}</li>
+                Completed
+              </label>
             </ul>
           </section>
         </section>

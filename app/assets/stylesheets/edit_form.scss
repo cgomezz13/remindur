@@ -31,5 +31,21 @@
   padding: 15px 0;
   text-align: left;
   padding: 15px 5px;
+}
 
+.hidden-list-summary {
+  display: none
+}
+
+.visible-list-summary ul {
+  display: flex;
+}
+
+.visible-list-summary {
+  right: 0;
+  background-color: #eee;
+  z-index: 10;
+  height: 88%;
+  width: 41%;
+  position: absolute;
 }
