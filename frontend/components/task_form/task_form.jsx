@@ -8,6 +8,7 @@ class taskForm extends React.Component {
     this.state = {body: '', due_date: '', status: '', note: '', list_id: '', selectedTaskIds: [] };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.selectionAction = this.selectionAction.bind(this);
+    this.handleDeleteAll = this.handleDeleteAll.bind(this);
   }
 
   update(type){
@@ -50,15 +51,18 @@ class taskForm extends React.Component {
       this.props.history.push(path)
     } else {
       this.props.history.push(last);
-      if (selectedIds.length > 1) {
-        console.log('FORM'); // Add form to delete all selected tasks
-      }
     }
 
   }
 
   isChecked (id) {
     this.state.selectedTaskIds.includes(id)
+  }
+
+  handleDeleteAll () {
+    this.state.selectedTaskIds.forEach(id => {
+      this.props.deleteTask(id);
+    })
   }
 
 
@@ -81,6 +85,14 @@ class taskForm extends React.Component {
       if (task.status) { NumofCompleted++; }
     })
 
+    let deleteAllOption;
+    if (this.state.selectedTaskIds.length > 1) {
+      deleteAllOption = (
+        <button className='deleteAll' onClick={this.handleDeleteAll}>Delete All Selected Tasks</button>
+      )
+    } else {
+      deleteAllOption = '';
+    }
 
 
     return (
@@ -109,6 +121,8 @@ class taskForm extends React.Component {
               </label>
             </ul>
           </section>
+
+
         </section>
 
     )

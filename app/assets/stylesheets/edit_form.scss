@@ -101,3 +101,23 @@
 .visible-list-summary ul label li {
   text-align: center
 }
+
+.visible-delete-option {
+  right: 0;
+  background-color: #eee;
+  z-index: 5;
+  height: 88%;
+  width: 41%;
+  position: absolute;
+  button {
+    background-color: #FFEFD5;
+    padding: 10px;
+    font-weight: 600;
+    opacity: 0.7;
+    margin: 100px 135px;
+  }
+}
+
+.hidden-delete-option {
+  display: none;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TaskForm from './task_form';
 import { fetchList } from '../../actions/list_actions';
-import { allTasks, createTask } from '../../actions/task_actions';
+import { allTasks, createTask, deleteTask } from '../../actions/task_actions';
 
 
 class ListTaskForm extends React.Component {
@@ -38,7 +38,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return ({
     action: (id) => dispatch(fetchList(id)),
-    createTask: (task) => dispatch(createTask(task))
+    createTask: (task) => dispatch(createTask(task)),
+    deleteTask: (id) => dispatch(deleteTask(id))
   })
 };
 
