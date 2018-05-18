@@ -8,8 +8,12 @@ class userHomepage extends React.Component {
 
     this.state = {query: '', results: []};
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchAllTasks();
+  }
 
   handleSearch() {
     return e => {
@@ -17,13 +21,13 @@ class userHomepage extends React.Component {
       let newResults = Object.assign([], this.state.results);
 
       this.props.tasks.forEach(task => {
-        if (task.body.toLowerCase().slice(0, query.length) === query && !newResults.includes(task.body)) {
-          newResults.push(task.body);
+        if (task.body.toLowerCase().slice(0, query.length) === query && !newResults.includes(task)) {
+          newResults.push(task);
         }
       })
 
       newResults.forEach(result => {
-        if (result.toLowerCase().slice(0, query.length) !== query) {
+        if (result.body.toLowerCase().slice(0, query.length) !== query) {
           const index = newResults.indexOf(result)
           newResults.splice(index, 1);
         }
@@ -38,23 +42,32 @@ class userHomepage extends React.Component {
   }
 
 
+  handleSubmit (search) {
+    this.props.history.push(`/tasks/${search.id}/edit`)
+    this.setState({results: []})
+    this.setState({query: ''})
+  }
+
 
   render () {
-    const searchResults = this.state.results.map((body, idx) => {
+    const searchResults = this.state.results.map((task, idx) => {
       return (
-        <li key={idx}>{body}</li>
+        <li key={idx}>{task.body}</li>
       )
     })
 
+    console.log(searchResults);
 
     return (
       <header className='user-page-navbar'>
 
         <section className='user-nav-left'>
+          <form onSubmit={() => this.handleSubmit(this.state.results[0])}>
           <input onChange={this.handleSearch()} type='text' placeholder= 'Search...' value={this.state.query}></input>
           <ul>
             {searchResults}
           </ul>
+          </form>
         </section>
 
 
