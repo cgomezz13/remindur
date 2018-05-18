@@ -75,24 +75,26 @@ class EditTask extends React.Component {
     return (
       <section className='edit-task-form'>
         <h1>Details</h1>
+        <button id='delete-task-button' onClick={() => this.handleDelete(this.state.task.id)}>Delete Task</button>
         {title}
 
-        <button id='delete-task-button' onClick={() => this.handleDelete(this.state.task.id)}>Delete Task</button>
         <form onSubmit={this.handleSubmit()}>
           <textarea type='text' onChange={this.updateBody()} value={this.state.task.body}></textarea>
 
 
         <h1>Status</h1>
         <section className='task-Status'>
-          <input onChange={this.updateStatus()} type='radio' value='true' name='status' checked={this.state.task.status === true } ></input><label>Complete</label>
-          <input onChange={this.updateStatus()} type='radio' value='false' name='status' checked={this.state.task.status === false } ></input><label>Incomplete</label>
+          <li><input onChange={this.updateStatus()} type='radio' value='true' name='status' checked={this.state.task.status === true } ></input><label>Complete</label></li>
+          <li><input onChange={this.updateStatus()} type='radio' value='false' name='status' checked={this.state.task.status === false } ></input><label>Incomplete</label></li>
         </section>
 
-        <h1>Due</h1>
+        <div className='due-date'>
+        <h1>Due:</h1>
         <input onChange= {this.updateDueDate()} type='date' name='due-date' value={this.state.task.due_date}></input>
+        </div>
 
-        <h1>Notes:</h1>
-        <input type='text' value={this.state.task.note}></input>
+        <h1>Note:</h1>
+        <input className='task-notes' type='text' value={this.state.task.note}></input>
 
         <input type='submit' value='Update'></input>
         </form>
