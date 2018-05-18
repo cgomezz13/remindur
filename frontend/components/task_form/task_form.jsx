@@ -80,8 +80,6 @@ class taskForm extends React.Component {
       if (task.status) { NumofCompleted++; }
     })
 
-    console.log(NumofCompleted);
-    console.log(TotalTasks);
 
 
     return (

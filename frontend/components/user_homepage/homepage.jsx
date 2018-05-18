@@ -40,14 +40,12 @@ class userHomepage extends React.Component {
 
 
   render () {
-    console.log(this.state.results);
     const searchResults = this.state.results.map((body, idx) => {
       return (
         <li key={idx}>{body}</li>
       )
     })
 
-    console.log(searchResults)
 
     return (
       <header className='user-page-navbar'>

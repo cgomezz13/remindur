@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
         <div>
           <input className='sign-up-inputs' onChange={this.update('first_name')} type="text" value={this.state.fname} placeholder={'First Name'} />
           <input className='sign-up-inputs' onChange={this.update('last_name')} type="text" value={this.state.lname} placeholder={'Last Name'} />
-          <input className='sign-up-inputs' onChange={this.update('email')} type="text" value={this.state.email} placeholder={'Email'} />
+          <input className='sign-up-inputs' onChange={this.update('email')} type="email" value={this.state.email} placeholder={'Email'} />
         </div>
       )
     } else {
@@ -78,7 +78,7 @@ class SessionForm extends React.Component {
             {message}
             {signin}
             <input className='login-inputs' onChange={this.update('username')} type="text" value={this.state.username} placeholder={'Username'} />
-            <input className='login-inputs' onChange={this.update('password')} type="text" value={this.state.password} placeholder={'Password'} />
+            <input className='login-inputs' onChange={this.update('password')} type="password" value={this.state.password} placeholder={'Password'} />
             <input className='button' type='submit' value={button} style={{marginTop: "8px", marginBottom: "12px"}}></input>
             {demo}
           </form>
