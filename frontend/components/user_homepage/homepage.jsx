@@ -56,7 +56,6 @@ class userHomepage extends React.Component {
       )
     })
 
-    console.log(searchResults);
 
     return (
       <header className='user-page-navbar'>

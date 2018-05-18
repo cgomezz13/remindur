@@ -11,6 +11,7 @@ class EditTask extends React.Component {
     this.updateStatus = this.updateStatus.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.updateDueDate = this.updateDueDate.bind(this);
+    this.updateNote = this.updateNote.bind(this);
   }
 
   componentDidMount () {
@@ -39,6 +40,13 @@ class EditTask extends React.Component {
   updateDueDate () {
     return e => {
       this.state.task.due_date = e.target.value;
+      this.setState(this.state.task)
+    }
+  }
+
+  updateNote () {
+    return e => {
+      this.state.task.note = e.target.value;
       this.setState(this.state.task)
     }
   }
@@ -94,7 +102,7 @@ class EditTask extends React.Component {
         </div>
 
         <h1>Note:</h1>
-        <input className='task-notes' type='text' value={this.state.task.note}></input>
+        <input onChange={this.updateNote()} className='task-notes' type='text' value={this.state.task.note}></input>
 
         <input type='submit' value='Update'></input>
         </form>
