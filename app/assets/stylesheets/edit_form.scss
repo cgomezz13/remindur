@@ -49,3 +49,15 @@
   width: 41%;
   position: absolute;
 }
+
+.visible-list-summary label {
+  margin: 25px 25px;
+  padding: 10px 5px;
+  background-color: #FFEFD5;
+  opacity: 0.8;
+  font-weight: 530;
+}
+
+.visible-list-summary ul label li {
+  text-align: center
+}
