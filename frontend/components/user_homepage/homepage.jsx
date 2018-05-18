@@ -50,11 +50,17 @@ class userHomepage extends React.Component {
 
 
   render () {
-    const searchResults = this.state.results.map((task, idx) => {
-      return (
-        <li key={idx}>{task.body}</li>
-      )
-    })
+    let searchResults;
+    if (this.state.results.length === 0 && this.state.query !== '') {
+      searchResults = <li>No Results</li>
+    } else {
+      searchResults = this.state.results.map((task, idx) => {
+        return (
+          <li key={idx}>{task.body}</li>
+        )
+      })
+    }
+
 
 
     return (
@@ -63,7 +69,7 @@ class userHomepage extends React.Component {
         <section className='user-nav-left'>
           <form onSubmit={() => this.handleSubmit(this.state.results[0])}>
           <input onChange={this.handleSearch()} type='text' placeholder= 'Search...' value={this.state.query}></input>
-          <ul>
+          <ul className='search-results'>
             {searchResults}
           </ul>
           </form>
