@@ -71,6 +71,19 @@ class taskForm extends React.Component {
       )
     });
 
+    const status = this.props.tasks;
+    let NumofCompleted = 0;
+    let TotalTasks = 0;
+
+    status.forEach(task => {
+      TotalTasks++ ;
+      if (task.status) { NumofCompleted++; }
+    })
+
+    console.log(NumofCompleted);
+    console.log(TotalTasks);
+
+    // const taskSummary = ()
 
     return (
 
@@ -82,6 +95,13 @@ class taskForm extends React.Component {
           </form>
           <section className='list-items'>
             <ul>{allTasks}</ul>
+          </section>
+
+          <section className={(this.state.selectedTaskIds.length === 0) ? 'visible-list-summary' : 'hidden-list-summary'}>
+            <ul>
+              <li>{NumofCompleted}</li>
+              <li>{TotalTasks}</li>
+            </ul>
           </section>
         </section>
 
