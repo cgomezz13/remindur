@@ -35,16 +35,6 @@ class taskForm extends React.Component {
     const selectedIds = Object.assign([], this.state.selectedTaskIds );
     const last = this.props.match.url;
 
-    if (selectedIds.length === 0) {
-      const path = last +  '/' + id + '/edit';
-      this.props.history.push(path)
-    } else {
-      this.props.history.push(last);
-      if (selectedIds.length > 1) {
-        console.log('FORM'); // Add form to delete all selected tasks
-      }
-    }
-
     if (selectedIds.includes(id)) {
       const idx = selectedIds.indexOf(id);
       selectedIds.splice(idx, 1);
@@ -52,6 +42,17 @@ class taskForm extends React.Component {
     } else {
       selectedIds.push(id);
       this.setState({selectedTaskIds: selectedIds});
+    }
+
+    if (selectedIds.length === 1) {
+      const taskId = selectedIds[0];
+      const path = last +  '/' + taskId + '/edit';
+      this.props.history.push(path)
+    } else {
+      this.props.history.push(last);
+      if (selectedIds.length > 1) {
+        console.log('FORM'); // Add form to delete all selected tasks
+      }
     }
 
   }
