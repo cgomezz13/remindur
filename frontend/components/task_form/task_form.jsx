@@ -61,8 +61,9 @@ class taskForm extends React.Component {
 
   handleDeleteAll () {
     this.state.selectedTaskIds.forEach(id => {
-      this.props.deleteTask(id);
+      this.props.deleteTask(id).then();
     })
+    this.setState({selectedTaskIds: []})
   }
 
 
@@ -86,9 +87,10 @@ class taskForm extends React.Component {
     })
 
     let deleteAllOption;
+
     if (this.state.selectedTaskIds.length > 1) {
       deleteAllOption = (
-        <button className='deleteAll' onClick={this.handleDeleteAll}>Delete All Selected Tasks</button>
+        <button className='deleteAll' onClick={() => this.handleDeleteAll()}>Delete All Selected Tasks</button>
       )
     } else {
       deleteAllOption = '';
@@ -122,7 +124,9 @@ class taskForm extends React.Component {
             </ul>
           </section>
 
-
+          <section className={(this.state.selectedTaskIds.length > 1) ? 'visible-delete-option' : 'hidden-delete-option'}>
+            {deleteAllOption}
+          </section>
         </section>
 
     )

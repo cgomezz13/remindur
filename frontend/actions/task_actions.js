@@ -2,7 +2,7 @@ import * as TaskAPIUtil from '../util/task_api_util';
 
 export const FETCH_ALL_TASKS = 'FETCH_ALL_TASKS';
 export const RECEIVE_TASK = 'RECEIVE_TASK';
-// export const DELETE_TASK = 'DELETE_TASK'; delete task should return all tasks now?
+export const DELETE_TASK = 'DELETE_TASK';
 
 export const receiveTask = (task) => {
   return {
@@ -11,11 +11,12 @@ export const receiveTask = (task) => {
   };
 };
 
-// export const deleteATask = () => {
-//   return {
-//     type: DELETE_TASK
-//   };
-// };
+export const deleteATask = (task) => {
+  return {
+    type: DELETE_TASK,
+    task
+  };
+};
 
 export const fetchAllTasks = (tasks) => {
   return {
@@ -34,8 +35,8 @@ export const createTask = (task) => {
 
 export const deleteTask = (id) => {
   return (dispatch) => {
-    return TaskAPIUtil.deleteTask(id).then(tasks => {
-      return dispatch(fetchAllTasks(tasks));
+    return TaskAPIUtil.deleteTask(id).then(task => {
+      return dispatch(deleteATask(task));
     });
   };
 };

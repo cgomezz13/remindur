@@ -30,8 +30,7 @@ class Api::TasksController < ApplicationController
   def destroy
     task = Task.find(params[:id])
     task.destroy
-    @tasks = Task.all
-    render :index
+    render json: task
   end
 
   private

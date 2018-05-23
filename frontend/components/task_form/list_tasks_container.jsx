@@ -7,9 +7,9 @@ import { allTasks, createTask, deleteTask } from '../../actions/task_actions';
 
 class ListTaskForm extends React.Component {
   render() {
-    const { tasks, action, formType, match, createTask, history } = this.props;
+    const { tasks, action, formType, match, createTask, history, deleteTask } = this.props;
     return (
-      <TaskForm match={match} tasks={tasks} action={action} createTask={createTask} formType={formType} history={history}/>
+      <TaskForm match={match} tasks={tasks} action={action} createTask={createTask} formType={formType} deleteTask={deleteTask} history={history}/>
     );
   }
 }
