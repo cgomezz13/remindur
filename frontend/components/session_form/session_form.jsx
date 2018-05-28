@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import generateQuote from '../../util/quote_util'
 
 class SessionForm extends React.Component {
   constructor (props) {
@@ -63,12 +64,16 @@ class SessionForm extends React.Component {
         }}>{demotext} </button>;
     }
 
+    debugger
+    const quote = generateQuote();
+
 
     return (
       <section className='session-page'>
 
         <section className='session-page-left-side'>
           <Link to={'/welcome'}><h1>LEFT SIDE</h1></Link>
+
         </section>
 
         <section className='session-page-right-side'>
