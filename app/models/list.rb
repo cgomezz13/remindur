@@ -1,6 +1,6 @@
 class List < ApplicationRecord
 
-  validates :list_title, presence: true
+  validates :list_title, presence: true, uniqueness: true
 
   has_many :tasks,
     class_name: 'Task',
