@@ -64,16 +64,23 @@ class SessionForm extends React.Component {
         }}>{demotext} </button>;
     }
 
-    debugger
-    const quote = generateQuote();
+    const getQuote = () => {
+      const {quote, author} = generateQuote();
+      return (
+        <section className='quote'>
+          <p>{quote}</p>
+          <p>{author}</p>
+        </section>
+      )
+    }
 
 
     return (
       <section className='session-page'>
 
         <section className='session-page-left-side'>
-          <Link to={'/welcome'}><h1>LEFT SIDE</h1></Link>
-
+          <Link to={'/welcome'}><h1>icon?</h1></Link>
+          {getQuote()}
         </section>
 
         <section className='session-page-right-side'>
