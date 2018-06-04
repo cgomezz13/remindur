@@ -5,7 +5,7 @@
   // position: relative;
   position: absolute;
   width: 43.5%;
-  height: 88%;
+  height: 100vh;
 }
 
 .edit-task-form textarea {
@@ -24,8 +24,8 @@
 .edit-task-form input[type="submit"] {
   background-color: #ffefd5;
   padding: 8px 5px 8px 5px;
-  position: relative;
-  left: 425px;
+  position: absolute;
+  right: 8%;
 }
 
 .edit-task-form h1 {
@@ -52,13 +52,13 @@
   opacity: 0.5;
   padding: 8px 5px 8px 5px;
   font-weight: 550;
-  margin-right: 30px;
+  margin-right: 8%;
 }
 
 .task-Status {
   display: flex;
   justify-content: space-between;
-  padding: 0px 50px;
+  padding: 0 8%;
 }
 
 .task-Status label {
