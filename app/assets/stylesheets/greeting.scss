@@ -11,8 +11,7 @@
 .header-nav {
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
-  width: 1000px;
+  margin: 0 100px 0 100px;
 }
 
 .navbar-logo {
@@ -48,7 +47,8 @@
 }
 
 .greeting-main {
-  background: image_url('main_page.jpg') 60% no-repeat;
+  background: image_url('main_page.jpg');
   background-size: cover;
-  height: 550px;
+  height: 100vh;
+  opacity: 0.8;
 }

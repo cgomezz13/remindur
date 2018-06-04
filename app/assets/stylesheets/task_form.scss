@@ -1,11 +1,33 @@
+.task-show {
+  display: flex;
+  width: 89%;
+}
+
+.list-and-task {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.task-default-show {
+  display: flex;
+  width: 100%;
+}
+
 .main-form {
-  width: 550px;
+  // width: 550px;
+  // width: 47.9%
+  width: 50%;
   background-color: #fff;
-  position: absolute;
+  // position: absolute;
+  position: relative;
   z-index: 5;
-  top: 80px;
+  // top: 80px;
+  top: 0%;
+  // top: 13.5%;
   bottom: 0;
-  left: 175px;
+  // left: 175px;
+  left: 0%;
   border-bottom: 1px dotted;
   border-top: 1px solid;
   padding: 2px 0;
@@ -13,7 +35,8 @@
   padding-right: 8px;
   border-bottom-color: #e5e5e5;
   border-top-color: #fff;
-  height: 85%;
+  height: 100vh;
+  // height: 90%;
   overflow: auto;
 }
 
@@ -31,7 +54,7 @@
   background-color: white;
 }
 
-.task-form input[type=text] {
+.task-form input[type="text"] {
   width: 100%;
   padding: 5px 10px;
   margin: 8px 0;
@@ -42,17 +65,17 @@
 }
 
 .task-form input:focus {
-  background-color: #FFFAF0;
+  background-color: #fffaf0;
 }
 
-.task-form input[type=submit] {
+.task-form input[type="submit"] {
   position: relative;
   left: 465px;
   padding: 8px 5px 8px 5px;
-  background-color: #FFEFD5;
+  background-color: #ffefd5;
 }
 
-.task-form input[type=checkbox] {
+.task-form input[type="checkbox"] {
   width: auto;
 }
 
@@ -79,7 +102,7 @@ form.task-form {
   font-size: 13px;
 }
 
-.Lifazul{
+.Lifazul {
   display: block;
   height: auto;
 }

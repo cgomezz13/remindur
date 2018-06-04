@@ -1,10 +1,12 @@
 .main-siderbar {
-  width: 175px;
-  position: absolute;
+  // width: 175px;
+  width: 11%;
+  position: relative;
+  // position: absolute;
   background-color: #eee;
-  top: 80px;
-  bottom: 0;
-  height: auto;
+  // top: 8.2%;
+  // bottom: 0;
+  height: 100vh;
   overflow: scroll;
 }
 
