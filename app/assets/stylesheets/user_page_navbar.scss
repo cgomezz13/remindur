@@ -1,5 +1,4 @@
 .user-page-navbar {
-  // background-color: #e6e4d8;
   background-color: #0066cc;
   width: auto;
   padding: 25px;
@@ -75,7 +74,7 @@
 
 .search-results {
   position: absolute;
-  background-color: #fffaf0;
+  background-color: #b3d9ff;
   width: 300px;
   height: auto;
   z-index: 6;
@@ -87,4 +86,16 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.search-bar {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  width: 18em;
+  background-color: #e6f2ff;
+  border-radius: 5px;
+}
+
+.search-bar:focus {
+  background-color: white;
 }

@@ -15,18 +15,12 @@
 }
 
 .main-form {
-  // width: 550px;
-  // width: 47.9%
   width: 50%;
   background-color: #fff;
-  // position: absolute;
   position: relative;
   z-index: 5;
-  // top: 80px;
   top: 0%;
-  // top: 13.5%;
   bottom: 0;
-  // left: 175px;
   left: 0%;
   border-bottom: 1px dotted;
   border-top: 1px solid;
@@ -36,7 +30,6 @@
   border-bottom-color: #e5e5e5;
   border-top-color: #fff;
   height: 100vh;
-  // height: 90%;
   overflow: auto;
 }
 
