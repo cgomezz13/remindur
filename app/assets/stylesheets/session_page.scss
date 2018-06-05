@@ -1,6 +1,7 @@
 .session-page-left-side {
   width: 50%;
-  background-color: #e6e4d8;
+  // background-color: #e6e4d8;
+  background-color: #0066cc;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -22,7 +23,6 @@
   padding: 100px;
   margin-top: 20px;
 }
-
 
 .login-inputs:focus {
   border: 3px solid lightblue;
@@ -51,16 +51,16 @@
 }
 
 .button {
-    background-color: #C0C0C0;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 10px;
-    box-sizing: border-box;
-    width: 100%;
-    text-align: center;
+  background-color: #c0c0c0;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
 }
 
 .button:hover {
@@ -75,7 +75,7 @@
 }
 
 .alt-link:hover {
-  color: #C0C0C0;
+  color: #c0c0c0;
 }
 
 .session-message {

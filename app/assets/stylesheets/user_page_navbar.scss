@@ -1,5 +1,6 @@
 .user-page-navbar {
-  background-color: #e6e4d8;
+  // background-color: #e6e4d8;
+  background-color: #0066cc;
   width: auto;
   padding: 25px;
   display: flex;
@@ -32,9 +33,9 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   overflow: hidden;
-  right: 1.5%;
+  right: 2%;
   z-index: 6;
-  width: 8%;
+  width: 10%;
 }
 
 .logout-link {
@@ -50,16 +51,18 @@
   font-size: 15px;
   opacity: 0.5;
   // width: 50px;
-  width: 100%;
+  width: 85%;
   // text-align: right;
   position: relative;
-  padding: 8px;
+  padding: 0.5em;
+  // padding: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 
   h2 {
+    text-align: right;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

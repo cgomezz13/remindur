@@ -1,7 +1,7 @@
 .edit-task-form {
   right: 0px;
   z-index: 5;
-  background-color: #eee;
+  background-color: #e6f2ff;
   // position: relative;
   position: absolute;
   width: 43.5%;
@@ -18,11 +18,11 @@
 }
 
 .edit-task-form textarea:focus {
-  background-color: #fffaf0;
+  background-color: #e6f2ff;
 }
 
 .edit-task-form input[type="submit"] {
-  background-color: #ffefd5;
+  background-color: #3399ff;
   padding: 8px 5px 8px 5px;
   position: absolute;
   right: 8%;
@@ -84,7 +84,7 @@
 
 .visible-list-summary {
   right: 0;
-  background-color: #eee;
+  background-color: #e6f2ff;
   z-index: 5;
   // height: 88%;
   height: 100vh;
@@ -95,7 +95,8 @@
 .visible-list-summary label {
   margin: 25px 25px;
   padding: 10px 5px;
-  background-color: #ffefd5;
+  background-color: #b3d9ff;
+  // background-color: #ffefd5;
   opacity: 0.8;
   font-weight: 530;
 }
@@ -106,16 +107,16 @@
 
 .visible-delete-option {
   right: 0;
-  background-color: #eee;
+  background-color: #e6f2ff;
   z-index: 5;
   height: 88%;
   width: 50%;
   position: relative;
   button {
-    background-color: #ffefd5;
+    background-color: #3399ff;
     padding: 10px;
     font-weight: 600;
-    opacity: 0.7;
+    opacity: 0.9;
     margin: 100px 135px;
   }
 }
