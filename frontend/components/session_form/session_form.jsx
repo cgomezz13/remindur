@@ -108,17 +108,15 @@ class SessionForm extends React.Component {
 
     const info = (
       <div className="left-side-info">
-        Stop thinking of all your to-dos, let the take care of that. Get
-        reminded anywhere!
+        Stop thinking of all your to-dos, let us take care of that. Get reminded
+        anywhere!
       </div>
     );
 
     return (
       <section className="session-page">
         <section className="session-page-left-side">
-          <Link to={"/welcome"}>
-            <h1>icon?</h1>
-          </Link>
+          <Link to={"/welcome"} />
           {info}
         </section>
 
