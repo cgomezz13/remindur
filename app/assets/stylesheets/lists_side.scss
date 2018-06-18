@@ -1,11 +1,7 @@
 .main-siderbar {
-  // width: 175px;
   width: 11%;
   position: relative;
-  // position: absolute;
   background-color: #e6f2ff;
-  // top: 8.2%;
-  // bottom: 0;
   height: 100vh;
   overflow: scroll;
   overflow-x: hidden;
@@ -45,10 +41,6 @@ ul.list-titles {
   height: 82%;
 }
 
-// .main-siderbar li:hover {
-//   opacity: 0.5;
-// }
-
 .list-titles li {
   justify-content: space-between;
   width: auto;
@@ -74,7 +66,6 @@ ul.list-titles {
 }
 
 .visible-list-dropdown {
-  // position: absolute;
   font-size: 14px;
   white-space: nowrap;
   background: #fff;
