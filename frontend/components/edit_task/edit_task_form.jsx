@@ -94,7 +94,7 @@ class EditTask extends React.Component {
     return (
       <section className="edit-task-form">
         <div onClick={() => this.handleClose()} className="edit-close">
-          &times;
+          close &times;
         </div>
         <div className="edit-task-info">
           <h1>Details</h1>
