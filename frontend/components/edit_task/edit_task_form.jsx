@@ -93,69 +93,74 @@ class EditTask extends React.Component {
 
     return (
       <section className="edit-task-form">
-        <span onClick={() => this.handleClose()} className="edit-close">
+        <div onClick={() => this.handleClose()} className="edit-close">
           &times;
-        </span>
-        <h1>Details</h1>
-        <button
-          id="delete-task-button"
-          onClick={() => this.handleDelete(this.state.task.id)}
-        >
-          Delete Task
-        </button>
-        {title}
+        </div>
+        <div className="edit-task-info">
+          <h1>Details</h1>
+          <span>
+            <button
+              id="delete-task-button"
+              onClick={() => this.handleDelete(this.state.task.id)}
+            >
+              Delete Task
+            </button>
+          </span>
 
-        <form onSubmit={this.handleSubmit()}>
-          <textarea
-            type="text"
-            onChange={this.updateBody()}
-            value={this.state.task.body}
-          />
+          {title}
 
-          <h1>Status</h1>
-          <section className="task-Status">
-            <li>
-              <input
-                onChange={this.updateStatus()}
-                type="radio"
-                value="true"
-                name="status"
-                checked={this.state.task.status === true}
-              />
-              <label>Complete</label>
-            </li>
-            <li>
-              <input
-                onChange={this.updateStatus()}
-                type="radio"
-                value="false"
-                name="status"
-                checked={this.state.task.status === false}
-              />
-              <label>Incomplete</label>
-            </li>
-          </section>
-
-          <div className="due-date">
-            <h1>Due:</h1>
-            <input
-              onChange={this.updateDueDate()}
-              type="date"
-              name="due-date"
-              value={this.state.task.due_date}
+          <form onSubmit={this.handleSubmit()}>
+            <textarea
+              type="text"
+              onChange={this.updateBody()}
+              value={this.state.task.body}
             />
-          </div>
 
-          <h1>Note:</h1>
-          <input
-            onChange={this.updateNote()}
-            className="task-notes"
-            type="text"
-            value={this.state.task.note}
-          />
+            <h1>Status</h1>
+            <section className="task-Status">
+              <li>
+                <input
+                  onChange={this.updateStatus()}
+                  type="radio"
+                  value="true"
+                  name="status"
+                  checked={this.state.task.status === true}
+                />
+                <label>Complete</label>
+              </li>
+              <li>
+                <input
+                  onChange={this.updateStatus()}
+                  type="radio"
+                  value="false"
+                  name="status"
+                  checked={this.state.task.status === false}
+                />
+                <label>Incomplete</label>
+              </li>
+            </section>
 
-          <input type="submit" value="Update" />
-        </form>
+            <div className="due-date">
+              <h1>Due:</h1>
+              <input
+                onChange={this.updateDueDate()}
+                type="date"
+                name="due-date"
+                value={this.state.task.due_date}
+              />
+            </div>
+
+            <h1>Note:</h1>
+            <input
+              onChange={this.updateNote()}
+              className="task-notes"
+              type="text"
+              value={this.state.task.note}
+            />
+
+            <input type="submit" value="Update" />
+          </form>
+        </div>
       </section>
     );
   }
