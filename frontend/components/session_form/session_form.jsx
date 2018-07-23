@@ -7,6 +7,7 @@ class SessionForm extends React.Component {
     super(props);
 
     if (this.props.formType === "signup") {
+      debugger;
       this.state = {
         first_name: "",
         last_name: "",
@@ -33,16 +34,25 @@ class SessionForm extends React.Component {
     this.props.action(user);
   }
 
-  renderErrors() {
-    return (
-      <ul className="sessionErrors">
-        {this.props.errors.map((error, i) => (
-          <li className="error" key={`error-${i}`}>
-            {error}
+  renderError(info) {
+    if (
+      Object.keys(this.props.errors).length !== 0 &&
+      Boolean(this.props.errors[info])
+    ) {
+      const msg = this.props.errors[info];
+      info = info.charAt(0).toUpperCase() + info.slice(1);
+      if (info.includes("_")) {
+        info = info.replace("_", " ");
+      }
+      const errorMessage = info + " " + msg;
+      return (
+        <ul className="sessionErrors">
+          <li className="error" key={`error`}>
+            {errorMessage}
           </li>
-        ))}
-      </ul>
-    );
+        </ul>
+      );
+    }
   }
 
   render() {
@@ -61,6 +71,7 @@ class SessionForm extends React.Component {
             value={this.state.fname}
             placeholder={"First Name"}
           />
+          {this.renderError("first_name")}
           <input
             className="sign-up-inputs"
             onChange={this.update("last_name")}
@@ -68,6 +79,7 @@ class SessionForm extends React.Component {
             value={this.state.lname}
             placeholder={"Last Name"}
           />
+          {this.renderError("last_name")}
           <input
             className="sign-up-inputs"
             onChange={this.update("email")}
@@ -75,6 +87,7 @@ class SessionForm extends React.Component {
             value={this.state.email}
             placeholder={"Email"}
           />
+          {this.renderError("email")}
         </div>
       );
     } else {
@@ -124,7 +137,7 @@ class SessionForm extends React.Component {
           <Link className="alt-link" to={link}>
             {text}
           </Link>
-          {this.renderErrors()}
+
           <form className="form" onSubmit={this.handleSubmit}>
             {message}
             {signin}
@@ -135,6 +148,7 @@ class SessionForm extends React.Component {
               value={this.state.username}
               placeholder={"Username"}
             />
+            {this.renderError("username")}
             <input
               className="login-inputs"
               onChange={this.update("password")}
@@ -142,6 +156,7 @@ class SessionForm extends React.Component {
               value={this.state.password}
               placeholder={"Password"}
             />
+            {this.renderError("password")}
             <input
               className="button"
               type="submit"
