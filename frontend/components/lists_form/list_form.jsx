@@ -6,7 +6,11 @@ class ListForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { list_title: "", visible: false };
+    this.state = {
+      list_title: "",
+      visible: false,
+      error: ""
+    };
     this.changeVisibility = this.changeVisibility.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -27,10 +31,18 @@ class ListForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const list = Object.assign({}, { list_title: this.state.list_title });
-    this.changeVisibility();
-    this.setState({ ["list_title"]: "" });
-    this.props.createNewList(list);
+    if (this.state.list_title !== "") {
+      const list = Object.assign({}, { list_title: this.state.list_title });
+      this.changeVisibility();
+      this.setState({ ["list_title"]: "" });
+      this.setState({ ["error"]: "" });
+      this.props.createNewList(list);
+    } else {
+      console.log("happened");
+      this.setState({
+        ["error"]: "No name entered. Please choose a list name."
+      });
+    }
   }
 
   render() {
@@ -48,6 +60,10 @@ class ListForm extends React.Component {
         </li>
       );
     });
+
+    const error = () => {
+      return <div>{this.state.error}</div>;
+    };
 
     return (
       <section className="main-siderbar">
@@ -84,6 +100,7 @@ class ListForm extends React.Component {
                 type="text"
                 value={this.state.list_title}
               />
+              <div>{this.state.error}</div>
               <input type="submit" value="Add" />
             </form>
           </div>
