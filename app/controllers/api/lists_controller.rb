@@ -1,7 +1,6 @@
 class Api::ListsController < ApplicationController
 
   def index
-    # @lists = current_user.lists
     @lists = List.where(user_id: current_user.id).includes(:tasks)
     render :index
   end
@@ -12,7 +11,7 @@ class Api::ListsController < ApplicationController
     if @list.save
       render :show
     else
-      errors = @list.errors.full_messages
+      error = @list.errors.full_messages
       render json: error, status: 401
     end
   end
@@ -22,7 +21,7 @@ class Api::ListsController < ApplicationController
     if @list.update(list_params)
       render :show
     else
-      errors = list.errors.full_messages
+      error = @list.errors.full_messages
       render json: error, status: 401
     end
   end
