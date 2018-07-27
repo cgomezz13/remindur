@@ -7,7 +7,6 @@ class SessionForm extends React.Component {
     super(props);
 
     if (this.props.formType === "signup") {
-      debugger;
       this.state = {
         first_name: "",
         last_name: "",
@@ -33,6 +32,8 @@ class SessionForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.action(user);
   }
+
+  componentDidMount() {}
 
   renderError(info) {
     if (
