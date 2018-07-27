@@ -31,17 +31,19 @@ class ListForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.list_title !== "") {
-      const list = Object.assign({}, { list_title: this.state.list_title });
-      this.changeVisibility();
+    const list = Object.assign({}, { list_title: this.state.list_title });
+    this.props.createNewList(list).then(() => {
       this.setState({ ["list_title"]: "" });
       this.setState({ ["error"]: "" });
-      this.props.createNewList(list);
-    } else {
-      console.log("happened");
-      this.setState({
-        ["error"]: "No name entered. Please choose a list name."
-      });
+      if (!this.props.errors[0]) {
+        this.changeVisibility();
+      }
+    });
+  }
+
+  renderErrors() {
+    if (this.props.errors) {
+      return <h1>{this.props.errors}</h1>;
     }
   }
 
@@ -101,6 +103,7 @@ class ListForm extends React.Component {
                 value={this.state.list_title}
               />
               <div>{this.state.error}</div>
+              <div>{this.renderErrors()}</div>
               <input type="submit" value="Add" />
             </form>
           </div>
