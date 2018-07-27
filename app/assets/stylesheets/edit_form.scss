@@ -1,16 +1,23 @@
-.edit-task-form {
-  right: 0px;
+#edit-task-form {
+  // left: 100%;
+  right: -43.5%;
+  display: none;
+  // overflow-x: hidden;
+  // right: 0px;
+  // width: 0px;
   z-index: 5;
   background-color: #e6f2ff;
   position: absolute;
   width: 43.5%;
   height: 100vh;
+  transition: 0.5s;
+  // transition: 0.8s;
 }
 
-.edit-task-info {
-  position: relative;
-  top: 2em;
-}
+// .edit-task-info {
+//   position: relative;
+//   top: 2em;
+// }
 
 .edit-task-form textarea {
   display: block;
