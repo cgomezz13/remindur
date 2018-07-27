@@ -56,6 +56,9 @@ class taskForm extends React.Component {
       const taskId = selectedIds[0];
       const path = last + "/" + taskId + "/edit";
       this.props.history.push(path);
+      setTimeout(() => {
+        document.getElementById("edit-task-form").style.right = "0%";
+      }, 20);
     } else {
       this.props.history.push(last);
     }
