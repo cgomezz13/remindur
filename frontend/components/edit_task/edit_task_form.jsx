@@ -17,6 +17,7 @@ class EditTask extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllTasks();
+    document.getElementById("edit-task-form").style.display = "block";
   }
 
   componentWillReceiveProps(newProps) {
@@ -66,19 +67,27 @@ class EditTask extends React.Component {
     return e => {
       e.preventDefault();
       this.props.updateTask(this.state.task).then(() => {
-        const currentUrl = this.props.location.pathname.split("/");
-        currentUrl.splice(-2, 2);
-        const redirectToUrl = currentUrl.join("/");
-        this.props.history.push(redirectToUrl);
+        document.getElementById("edit-task-form").style.right = "-43.5%";
+        setTimeout(() => {
+          const currentUrl = this.props.location.pathname.split("/");
+          currentUrl.splice(-2, 2);
+          const redirectToUrl = currentUrl.join("/");
+          this.props.history.push(redirectToUrl);
+          document.getElementById("edit-task-form").style.display = "hidden";
+        }, 100);
       });
     };
   }
 
   handleClose() {
-    const currentUrl = this.props.location.pathname.split("/");
-    currentUrl.splice(-2, 2);
-    const redirectToUrl = currentUrl.join("/");
-    this.props.history.push(redirectToUrl);
+    document.getElementById("edit-task-form").style.right = "-43.5%";
+    setTimeout(() => {
+      document.getElementById("edit-task-form").style.display = "hidden";
+      const currentUrl = this.props.location.pathname.split("/");
+      currentUrl.splice(-2, 2);
+      const redirectToUrl = currentUrl.join("/");
+      this.props.history.push(redirectToUrl);
+    }, 100);
   }
 
   render() {
@@ -92,7 +101,7 @@ class EditTask extends React.Component {
     }
 
     return (
-      <section className="edit-task-form">
+      <section id="edit-task-form" className="edit-task-form">
         <div onClick={() => this.handleClose()} className="edit-close">
           close &times;
         </div>
