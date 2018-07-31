@@ -7,6 +7,7 @@ export const UPDATE_LIST = "UPDATE_LIST";
 export const FETCH_A_LIST = "FETCH_A_LIST";
 export const DELETE_LIST = "DELETE_LIST";
 export const RECEIVE_LIST_ERRORS = "RECEIVE_LIST_ERRORS";
+export const CLEAR_LIST_ERRORS = "CLEAR_LIST_ERRORS";
 
 export const GetAllLists = lists => {
   return {
@@ -34,6 +35,12 @@ const fetchAList = ({ list, tasks }) => {
     type: FETCH_A_LIST,
     list,
     tasks
+  };
+};
+
+const clearErrors = () => {
+  return {
+    type: CLEAR_LIST_ERRORS
   };
 };
 
@@ -99,5 +106,11 @@ export const fetchList = id => {
     return ListAPIUtil.fetchListsTask(id).then(list => {
       return dispatch(fetchAList(list));
     });
+  };
+};
+
+export const clearListErrors = () => {
+  return dispatch => {
+    return dispatch(clearErrors());
   };
 };
