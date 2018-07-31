@@ -14,7 +14,6 @@ class ListForm extends React.Component {
     this.changeVisibility = this.changeVisibility.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.clearErrors = this.clearErrors.bind(this);
     this.avoidDBError = this.avoidDBError.bind(this);
   }
 
@@ -32,14 +31,9 @@ class ListForm extends React.Component {
     };
   }
 
-  clearErrors() {
-    this.props.errors[0] = "";
-  }
-
   handleClose() {
     this.setState({ ["list_title"]: "" });
     this.setState({ ["error"]: "" });
-    this.clearErrors();
     this.props.clearListErrors;
     this.changeVisibility();
   }
@@ -52,7 +46,6 @@ class ListForm extends React.Component {
     e.preventDefault();
     this.setState({ ["error"]: "" });
     this.props.clearListErrors();
-    debugger;
     if (this.state.list_title.length === 0) {
       this.avoidDBError();
     } else {
@@ -83,6 +76,8 @@ class ListForm extends React.Component {
             list={list}
             update={this.props.updateList}
             delete={this.props.deleteList}
+            errors={this.props.errors}
+            clearErrors={this.props.clearListErrors}
           />
         </li>
       );
