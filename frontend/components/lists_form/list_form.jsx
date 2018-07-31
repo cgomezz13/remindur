@@ -15,6 +15,7 @@ class ListForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.clearErrors = this.clearErrors.bind(this);
+    this.avoidDBError = this.avoidDBError.bind(this);
   }
 
   componentDidMount() {
@@ -39,24 +40,35 @@ class ListForm extends React.Component {
     this.setState({ ["list_title"]: "" });
     this.setState({ ["error"]: "" });
     this.clearErrors();
+    this.props.clearListErrors;
     this.changeVisibility();
+  }
+
+  avoidDBError() {
+    this.setState({ ["error"]: "List title can't be blank!!" });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const list = Object.assign({}, { list_title: this.state.list_title });
-    this.props.createNewList(list).then(() => {
-      this.setState({ ["list_title"]: "" });
-      this.setState({ ["error"]: "" });
-      if (!this.props.errors[0]) {
+    this.setState({ ["error"]: "" });
+    this.props.clearListErrors();
+    debugger;
+    if (this.state.list_title.length === 0) {
+      this.avoidDBError();
+    } else {
+      const list = Object.assign({}, { list_title: this.state.list_title });
+      this.props.createNewList(list).then(() => {
+        this.setState({ ["list_title"]: "" });
+        this.setState({ ["error"]: "" });
+        this.props.clearListErrors();
         this.changeVisibility();
-      }
-    });
+      });
+    }
   }
 
   renderErrors() {
     if (this.props.errors) {
-      return <h1>{this.props.errors}</h1>;
+      return <div>{this.props.errors}</div>;
     }
   }
 
@@ -75,10 +87,6 @@ class ListForm extends React.Component {
         </li>
       );
     });
-
-    const error = () => {
-      return <div>{this.state.error}</div>;
-    };
 
     return (
       <section className="main-siderbar">
@@ -116,7 +124,7 @@ class ListForm extends React.Component {
                 value={this.state.list_title}
               />
               <div>{this.state.error}</div>
-              <div>{this.renderErrors()}</div>
+              {this.renderErrors()}
               <input type="submit" value="Add" />
             </form>
           </div>
