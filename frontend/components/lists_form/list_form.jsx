@@ -13,6 +13,8 @@ class ListForm extends React.Component {
     };
     this.changeVisibility = this.changeVisibility.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.clearErrors = this.clearErrors.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +29,17 @@ class ListForm extends React.Component {
     return e => {
       this.setState({ [type]: e.target.value });
     };
+  }
+
+  clearErrors() {
+    this.props.errors[0] = "";
+  }
+
+  handleClose() {
+    this.setState({ ["list_title"]: "" });
+    this.setState({ ["error"]: "" });
+    this.clearErrors();
+    this.changeVisibility();
   }
 
   handleSubmit(e) {
@@ -91,7 +104,7 @@ class ListForm extends React.Component {
           }
         >
           <div className="modal-content">
-            <span onClick={() => this.changeVisibility()} className="close">
+            <span onClick={() => this.handleClose()} className="close">
               &times;
             </span>
             <h1>Add a List</h1>
