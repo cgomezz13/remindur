@@ -68,29 +68,10 @@ A higher-order component is a function that takes a component and returns a new 
 ```javascript
 // list_tasks_container.jsx
 
-class ListTaskForm extends React.Component {
-  render() {
-    const {
-      tasks,
-      action,
-      formType,
-      match,
-      createTask,
-      history,
-      deleteTask
-    } = this.props;
-    return (
-      <TaskForm
-        match={match}
-        tasks={tasks}
-        action={action}
-        createTask={createTask}
-        formType={formType}
-        deleteTask={deleteTask}
-        history={history}
-      />
-    );
-  }
+const ListTaskForm = props => {
+  return (
+    <TaskForm (...this.props) />
+  );
 }
 ```
 
