@@ -78,7 +78,6 @@ class EditListDropdown extends React.Component {
   }
 
   render() {
-    debugger;
     const editList = (
       <li>
         <button
