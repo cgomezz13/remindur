@@ -106,15 +106,15 @@ class EditTask extends React.Component {
           close &times;
         </div>
         <div className="edit-task-info">
-          <h1>Details</h1>
-          <span>
+          <div className="edit-task-header">
+            <h1>Details</h1>
             <button
               id="delete-task-button"
               onClick={() => this.handleDelete(this.state.task.id)}
             >
               Delete Task
             </button>
-          </span>
+          </div>
 
           {title}
 
