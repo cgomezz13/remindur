@@ -9,6 +9,12 @@
   transition: 0.5s;
 }
 
+.edit-task-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .edit-task-form textarea {
   display: block;
   margin: 10px 25px 15px 25px;
@@ -30,7 +36,7 @@
 }
 
 .edit-task-form h1 {
-  padding: 15px 0;
+  // padding: 15px 0;
   text-align: left;
   padding: 15px 5px;
 }
@@ -46,14 +52,12 @@
 }
 
 #delete-task-button {
-  right: 0;
-  position: absolute;
-  top: 7px;
+  position: relative;
   background-color: darkgray;
   opacity: 0.5;
   padding: 8px 5px 8px 5px;
   font-weight: 550;
-  margin-right: 8%;
+  margin-right: 5%;
 }
 
 .task-Status {
