@@ -69,10 +69,8 @@ A higher-order component is a function that takes a component and returns a new 
 // list_tasks_container.jsx
 
 const ListTaskForm = props => {
-  return (
-    <TaskForm (...this.props) />
-  );
-}
+  return <TaskForm {...this.props} />;
+};
 ```
 
 Then, the `TaskForm` component will render the tasks. The `TaskForm` is not concerned with whether AllTasks is selected or a particular list, it simply renders the tasks passed to it.
