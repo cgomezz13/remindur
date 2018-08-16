@@ -90,6 +90,20 @@ class taskForm extends React.Component {
       );
     });
 
+    let button;
+    if (!this.state.body) {
+      button = (
+        <input
+          type="submit"
+          value="Add Task"
+          style={{ opacity: 0.4 }}
+          disabled
+        />
+      );
+    } else {
+      button = <input type="submit" value="Add Task" />;
+    }
+
     const status = this.props.tasks;
     let NumofCompleted = 0;
     let TotalTasks = 0;
@@ -124,7 +138,7 @@ class taskForm extends React.Component {
               value={this.state.body}
               placeholder="Add a Task"
             />
-            <input type="submit" value="Add Task" />
+            {button}
           </form>
           <section className="list-items">
             <ul>{allTasks}</ul>
