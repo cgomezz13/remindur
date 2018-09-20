@@ -70,9 +70,12 @@ class taskForm extends React.Component {
 
   handleDeleteAll() {
     this.state.selectedTaskIds.forEach(id => {
-      this.props.deleteTask(id).then();
+      // let pos = this.state.selectedTaskIds.indexOf(id);
+      // this.state.selectedTaskIds.splice(pos, 1);
+      // this.setState({ selectedTaskIds: selectedTaskIds })
+      this.props.deleteTask(id).then(this.setState({ selectedTaskIds: [] }));
     });
-    this.setState({ selectedTaskIds: [] });
+    // this.setState({ selectedTaskIds: [] });
   }
 
   render() {
