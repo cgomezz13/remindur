@@ -81,7 +81,7 @@ class taskForm extends React.Component {
   render() {
     const allTasks = this.props.tasks.map(task => {
       return (
-        <label key={task.id} className="Lifazul">
+        <label key={task.id} className="all-tasks">
           <input
             onClick={() => this.selectionAction(task.id)}
             checked={this.isChecked(task.id)}
